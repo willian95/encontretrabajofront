@@ -16,22 +16,24 @@
             <!--<li><a class="item-menu_a" href="#">Buscar Empleos</a></li>-->
             <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta</a></li>
             <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/register' }}">Crea tu cuenta</a></li>
-            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/login' }}">Ingresa a tu cuenta</a></li>
+            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a></li>
         </ul>
     </section>            
       <!--Banner-->
     <section class="banner">
         <div id="demo" class="carousel slide carrusel-principal" data-ride="carousel">
             <div class="carousel-inner carrusel-banner-et">
-                <div class="carousel-item active">
-                    <img class="img-carrusel-banner-et" src="{{ asset('assets/img/Banner-01.png') }} " alt=" banner encontre trabajo">
-                    <div class="carousel-caption ">
-                        <!-- <h3><strong>dfgbfg</strong></h3> -->
-                    </div>   
+                {{--<div class="carousel-item active">
+                    <img class="img-carrusel-banner-et" src="{{ asset('assets/img/Banner-01.png') }} " alt=" banner encontre trabajo">  
                 </div>
                 <div class="carousel-item">
                     <img  class="img-carrusel-banner-et" src="{{ asset('assets/img/Banner-02.png') }}" alt="banner encontre trabajo">
-                </div>
+                </div>--}}
+                @foreach(App\Carousel::where('status', 1)->get() as $carousel)
+                    <div class="carousel-item active">
+                        <img class="img-carrusel-banner-et" src="{{ $carousel->image }} " alt=" banner encontre trabajo">  
+                    </div>
+                @endforeach
             </div>
             <a class="carousel-control-prev" href="#demo" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
@@ -51,7 +53,7 @@
             <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div>
             <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4>
                 <div class="grupo-btn-et">
-                <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/login' }}">Ingresa a tu cuenta</a>
+                <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a>
                 <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
                 <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/home' }}">Busca tu empleo</a>
             </div>
@@ -62,10 +64,16 @@
             <h3  class=" text-center text-azul">Hoy hay <strong><u>1500 empresas</u></strong> contratando</h3>
             <div class="container ofertas-opciones">
                 <div class="row ofertas-opciones-row">
-                    @foreach(App\Offer::take(12)->where('status', 'abierto')->whereDate('expiration_date', '>', Carbon\Carbon::today()->toDateString())->get() as $offer)
-                        <div class="col-md-2 ofertas-opciones-item"><a href="#"> <div class="ofertas-opciones-item-img"></div>
-                        <h5 class="ofertas-opciones-item-h5">{{ $offer->title }}</h5>
-                        <h5 class="ofertas-opciones-item-h5">Ver oferta</h5></a></div>
+                    @foreach(App\Offer::take(12)->with("user")->has("user")->where('status', 'abierto')->whereDate('expiration_date', '>', Carbon\Carbon::today()->toDateString())->get() as $offer)
+                        <div class="col-md-2 ofertas-opciones-item">
+                            <a href="{{ env('PLATFORM_URL').'/offers/detail/'.$offer->slug }}"> 
+                                <p class="text-center">
+                                    <img class="ofertas-opciones-item-img" src="{{ $offer->user->image }}">
+                                </p>
+                                <h3 class="text-center">{{ $offer->title }}</h3>
+                                <h5 class="ofertas-opciones-item-h5">Ver oferta</h5>
+                            </a>
+                        </div>
                     @endforeach
                 
                 </div>

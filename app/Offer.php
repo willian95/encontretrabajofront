@@ -9,4 +9,8 @@ class Offer extends Model
     
     protected $table = "offers";
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }
