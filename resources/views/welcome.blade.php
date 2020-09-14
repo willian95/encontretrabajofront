@@ -30,7 +30,7 @@
                     <img  class="img-carrusel-banner-et" src="{{ asset('assets/img/Banner-02.png') }}" alt="banner encontre trabajo">
                 </div>--}}
                 @foreach(App\Carousel::where('status', 1)->get() as $carousel)
-                    <div class="carousel-item">
+                    <div class="carousel-item @if($loop->index == 0) active @endif">
                         <img class="img-carrusel-banner-et" src="{{ $carousel->image }} " alt=" banner encontre trabajo">  
                     </div>
                 @endforeach
