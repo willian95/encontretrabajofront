@@ -62,7 +62,7 @@
     </section>
         
         <section class="ofertas">
-            <h3  class=" text-center text-azul">Empresas que <strong>publican con nosotros</strong></h3>
+            <h3  class=" text-center text-azul">Empresas que <strong><u>publican con nosotros</u></strong></h3>
             <div class="container ofertas-opciones">
                 <div class="row ofertas-opciones-row">
                     
