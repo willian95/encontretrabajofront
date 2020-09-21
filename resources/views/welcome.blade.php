@@ -60,6 +60,119 @@
         </div> 
         
     </section>
+        
+        <section class="ofertas">
+            <h3  class=" text-center text-azul">Empresas que <strong>publican</strong></h3>
+            <div class="container ofertas-opciones">
+                <div class="row ofertas-opciones-row">
+                    
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 ofertas-opciones-item">
+                        <a href="#"> 
+                            <p class="text-center">
+                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
+                            </p>
+                        </a>
+                    </div>
+                    
+                
+                </div>
+            </div>
+        </section> 
+
         <section class="ofertas">
             <h3  class=" text-center text-azul">Hoy hay <strong><u>1500 empresas</u></strong> contratando</h3>
             <div class="container ofertas-opciones">
