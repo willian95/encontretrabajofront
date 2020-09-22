@@ -43,7 +43,7 @@
             
         <div class="carrusel-principal-inf">
  
-            <div style="width: 100%; height: 100%; top: 0; position: absolute; background-color: rgba(0, 0, 0, 0.6)">
+            <div style="width: 100%; height: 100%; top: 0; position: absolute; background-color: rgba(0, 0, 0, 0.2)">
                 <div class="carrusel-principal-inf-logo">
                     <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logo-color.png') }}" alt=""></div>
                 </div>
