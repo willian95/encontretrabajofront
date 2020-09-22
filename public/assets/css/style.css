@@ -307,7 +307,7 @@ section.buscar-empleo-localizacion li.nav-item {
 .carrusel-principal-inf{
     top: 0 !important;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0);
     height: 100vh;
 }
 
