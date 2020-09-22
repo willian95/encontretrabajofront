@@ -21,41 +21,43 @@
     </section>            
       <!--Banner-->
     <section class="banner">
-        <div id="demo" class="carousel slide carrusel-principal" data-ride="carousel">
-            <div class="carousel-inner carrusel-banner-et">
+        <div id="demo" class="carrusel-principal" data-ride="carousel">
+            
                 {{--<div class="carousel-item active">
                     <img class="img-carrusel-banner-et" src="{{ asset('assets/img/Banner-01.png') }} " alt=" banner encontre trabajo">  
                 </div>
                 <div class="carousel-item">
                     <img  class="img-carrusel-banner-et" src="{{ asset('assets/img/Banner-02.png') }}" alt="banner encontre trabajo">
                 </div>--}}
-                @foreach(App\Carousel::where('status', 1)->get() as $carousel)
+                
+                    <video  class="img-carrusel-banner-et" loop style="width: 100%;" autoplay="true" muted="muted">
+                        <source src="{{ asset('assets/img/banner-video.mp4') }}" type="video/mp4">
+                    </video>
+             
+               {{--@foreach(App\Carousel::where('status', 1)->get() as $carousel)
                     <div class="carousel-item @if($loop->index == 0) active @endif">
                         <img class="img-carrusel-banner-et" src="{{ $carousel->image }} " alt=" banner encontre trabajo">  
                     </div>
-                @endforeach
-            </div>
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
+                @endforeach--}}
+           
+            
         <div class="carrusel-principal-inf">
-            <div class="carrusel-principal-inf-logo">
-                <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logo-color.png') }}" alt=""></div>
-            </div>
-            <div class="buscador">
-                <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo">
-                <button type="button" class="btn-lupa-et" href="#"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
-            </div>
-            <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div>
-            <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4>
-                <div class="grupo-btn-et">
-                <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a>
-                <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
-                <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/home' }}">Busca tu empleo</a>
+ 
+            <div style="width: 100%; height: 100%; top: 0; position: absolute; background-color: rgba(0, 0, 0, 0.6)">
+                <div class="carrusel-principal-inf-logo">
+                    <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logo-color.png') }}" alt=""></div>
+                </div>
+                <div class="buscador">
+                    <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo">
+                    <button type="button" class="btn-lupa-et" href="#"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
+                </div>
+                <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div>
+                <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4>
+                    <div class="grupo-btn-et">
+                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a>
+                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
+                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/home' }}">Busca tu empleo</a>
+                </div>
             </div>
         </div> 
         

@@ -303,7 +303,16 @@ section.buscar-empleo-localizacion li.nav-item {
     height: 100vh;
     object-fit: cover;
 }
+
+.carrusel-principal-inf{
+    top: 0 !important;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+}
+
 .carrusel-principal-inf-logo-img {
+    margin-top: 130px;
     display: flex;
     justify-content: center;
 }
