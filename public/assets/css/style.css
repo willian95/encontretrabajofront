@@ -145,6 +145,9 @@ a:hover {
   }
 
   @media (max-width: 768px) {
+    .grupo-btn-et {
+        margin-top: 30px!important;
+    }
     h6.opcion-en-web-et-container-col_h6 {
         font-size: 14px;
     }
@@ -294,7 +297,20 @@ a:hover {
     }
 
   }
+  @media (max-width: 375px){
+  input.buscador-et, select.select-buscador, button.btn-lupa-et {
+    margin-top: 25px!important;
+}
+  }
+
   @media (max-width: 320px){
+    img.carrusel-principal-inf-logo-img_img {
+        height: 80px!important; 
+    }
+    .carrusel-principal-inf-logo-img {
+        margin-top: 110px!important;}
+  
+
     .modal-dialog.modal-planes {
         max-width: 95%;
         margin: 10px auto;
