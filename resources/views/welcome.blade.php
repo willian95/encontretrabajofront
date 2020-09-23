@@ -238,9 +238,7 @@
                 <li class="nav-item">
                 <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu2">Categorias</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu3">Salarios</a>
-                </li>
+                
             </ul>
 
             <!-- Tab panes -->
