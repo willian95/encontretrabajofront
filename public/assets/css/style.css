@@ -145,10 +145,15 @@ a:hover {
   }
 
   @media (max-width: 768px) {
+    .grupo-btn-et {
+        margin-top: 30px!important;
+    }
     h6.opcion-en-web-et-container-col_h6 {
         font-size: 14px;
     }
-    
+    a.grupo-btn-et_azul {
+        font-size: 12px!important;
+    }
     a.grupo-btn-et_a {
         font-size: 12px!important;
     }
@@ -251,16 +256,37 @@ a:hover {
         font-size: 20px;
     }
     input.buscador-et {
-        height: 35px!important;
+        height: 40px!important;
+        width: 45%!important;
+
+
+    }
+    .text-center.l-a.text-banner-g {
+    font-size: 30px!important;
+}
+    .text-center.l-a.text-banner-m {
+    font-size: 18px!important;
+    }
+    .text-center.l-a.text-banner-p {
+        font-size: 16px!important;
+    }
+    .grupo-btn-et {
+        margin-top: 0px!important;
+    }
+    select.select-buscador {
+        height: 40px!important;
     }
     h4.text-center.text-azul {
-        font-size: 18px;
+        font-size: 18px!important;
     }
     .grupo-btn-et {
         flex-wrap: wrap;
     }
     a.grupo-btn-et_a {
-        margin-top: 15px;
+        margin-top: 10px;
+    }
+    a.grupo-btn-et_azul {
+        margin-top: 10px;
     }
     .carousel-item.active {
         height: 100vh;
@@ -271,7 +297,30 @@ a:hover {
     }
 
   }
+  @media (max-width: 375px){
+  input.buscador-et, select.select-buscador, button.btn-lupa-et {
+    margin-top: 25px!important;
+}
+  }
+
   @media (max-width: 320px){
+    img.carrusel-principal-inf-logo-img_img {
+        height: 80px!important; 
+    }
+    .carrusel-principal-inf-logo-img {
+        margin-top: 110px!important;}
+  
+
+    .modal-dialog.modal-planes {
+        max-width: 95%;
+        margin: 10px auto;
+    }
+    .carrusel-principal-inf-logo-img {
+        height: 50px!important;
+    }
+    .text-center.l-a.text-banner-g {
+        padding-top: 15px!important;
+    }
     img.carrusel-principal-inf-logo-img_img {
         width: 150px;
     } 
@@ -288,6 +337,15 @@ a:hover {
 section.buscar-empleo-localizacion li.nav-item {
     width: 50%;
     text-align: center;
+}
+.text-center.l-a.text-banner-g {
+    font-size: 22px!important;
+}
+.text-center.l-a.text-banner-m {
+    font-size: 15px!important;
+}
+.text-center.l-a.text-banner-p {
+    font-size: 15px!important;
 }
   }
   
@@ -312,9 +370,11 @@ section.buscar-empleo-localizacion li.nav-item {
 }
 
 .carrusel-principal-inf-logo-img {
-    margin-top: 130px;
+    margin-top: 120px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
+    height: 65px;
 }
 img.buscador_img {
     width: 28px;
@@ -372,7 +432,7 @@ a.btn-et:hover {
 a.grupo-btn-et_a {
     background: #26988a;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     /* padding: 10px 20px; */
     /* max-width: 50px; */
@@ -514,4 +574,109 @@ img.rs_img {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+/*Cambios*/
+
+select.select-buscador {
+    display: flex;
+    height: 65px;
+    background: #1675a9;
+    color: #ffff!important;
+    border: 1px solid #1675a9;
+    /* width: 60%; */
+    height: 45px;
+    margin-top: 50px;
+    padding: 10px;
+}
+select:focus {
+
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  .l-a {
+      color: #fff;
+  }
+  .text-center.l-a.text-banner-g {
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 20px;
+    text-shadow: 0.1px 0.1px 2px #564a4a;
+}
+.text-center.l-a.text-banner-m {
+    font-size: 30px;
+    text-shadow: 0.1px 0.1px 2px #564a4a;
+
+}
+.text-center.l-a.text-banner-p {
+    font-size: 20px;
+    text-shadow: 0.1px 0.1px 2px #5f5f5f;
+
+}
+a.grupo-btn-et_azul {
+    background: #1675a9;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    /* padding: 10px 20px; */
+    /* max-width: 50px; */
+    width: 165px!important;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    justify-content: center;
+}
+a.grupo-btn-et_azul:hover {
+    background: #26988a;
+    transition: 0.5s;
+}
+img.carrusel-principal-inf-logo-img_img {
+    height: 100px;
+    object-fit: contain;
+}
+h3.text-center.title-plan {
+    background: #1675a9;
+    color: #fff;
+}
+button.btn.btn-azul {
+    background: #1675a9;
+    color: #fff;
+}
+.text-center.price-plan {
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.modal-dialog.modal-planes {
+    max-width: 80%;
+    margin: 10px auto;
+}
+.cont-plan {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-plan {
+    width: 400px;
+}
+.text-center-plan-t {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: transparent!important;
+}
+.modal-title.text-center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+
+
 }
