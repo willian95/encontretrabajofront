@@ -68,7 +68,7 @@
                     <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa tu sesión</a>
                     <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/register' }}">Crear tu cuenta</a>
                     <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica Gratis</a>
-                    <a class="grupo-btn-et_azul" href="#" >VER PLANES</a>
+                    <a class="grupo-btn-et_azul" href="#" data-toggle="modal" data-target="#myModal" >VER PLANES</a>
 
 
                     <!-- <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
@@ -76,7 +76,57 @@
                 </div>
             </div>
         </div> 
-        
+        <div class="modal " id="myModal">
+            <div class="modal-dialog modal-planes">
+                <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header text-center-plan-t">
+                    <h4 class="modal-title text-center">Nuestros Planes</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                <div class="row">
+
+                        <div class="col-md-6 cont-plan">
+                            <div class="card card-plan">
+                                <div class="card-body">
+                                    <h3 class="text-center title-plan">Plan 1</h3>
+                                    <p><strong>Publicaciones: </strong>5</p>
+                                    <p><strong>Conferencias: </strong>5</p>
+                                    <h4 class="text-center price-plan">$ 100</h4>
+                                    <p class="text-center">
+                                        <button class="btn btn-azul">Comprar</button>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 cont-plan">
+                            <div class="card card-plan">
+                                <div class="card-body">
+                                    <h3 class="text-center title-plan">Plan 1</h3>
+                                    <p><strong>Publicaciones: </strong>5</p>
+                                    <p><strong>Conferencias: </strong>5</p>
+                                    <h4 class="text-center price-plan">$ 100</h4>
+                                    <p class="text-center">
+                                        <button class="btn btn-azul">Comprar</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" style=" background: #26988a; border: transparent;">Cerrar</button>
+                </div>
+
+                </div>
+            </div>
+            </div>
     </section>
         
         <section class="ofertas">

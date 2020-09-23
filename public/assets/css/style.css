@@ -295,6 +295,10 @@ a:hover {
 
   }
   @media (max-width: 320px){
+    .modal-dialog.modal-planes {
+        max-width: 95%;
+        margin: 10px auto;
+    }
     .carrusel-principal-inf-logo-img {
         height: 50px!important;
     }
@@ -617,4 +621,46 @@ a.grupo-btn-et_azul:hover {
 img.carrusel-principal-inf-logo-img_img {
     height: 100px;
     object-fit: contain;
+}
+h3.text-center.title-plan {
+    background: #1675a9;
+    color: #fff;
+}
+button.btn.btn-azul {
+    background: #1675a9;
+    color: #fff;
+}
+.text-center.price-plan {
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.modal-dialog.modal-planes {
+    max-width: 80%;
+    margin: 10px auto;
+}
+.cont-plan {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-plan {
+    width: 400px;
+}
+.text-center-plan-t {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: transparent!important;
+}
+.modal-title.text-center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+
+
 }
