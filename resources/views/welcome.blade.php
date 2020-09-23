@@ -51,11 +51,9 @@
                 <div class="buscador">
                     <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo">
                     <select name="" id="" class="select-buscador">
-                        <option value="">Seleccione</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
+                        @foreach(App\Regions as $region)
+                            <option value="{{ $region->id }}">{{ $region->name }}</option>
+                        @endforeach
                     </select>
                     <button type="button" class="btn-lupa-et" href="#"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
                 </div>
