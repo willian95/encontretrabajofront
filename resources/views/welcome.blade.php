@@ -45,18 +45,34 @@
  
             <div style="width: 100%; height: 100%; top: 0; position: absolute; background-color: rgba(0, 0, 0, 0.2)">
                 <div class="carrusel-principal-inf-logo">
-                    <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logo-color.png') }}" alt=""></div>
+                    <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logop.png') }}" alt=""></div>
                 </div>
+                
                 <div class="buscador">
                     <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo">
+                    <select name="" id="" class="select-buscador">
+                        <option value="">Seleccione</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
                     <button type="button" class="btn-lupa-et" href="#"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
                 </div>
-                <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div>
-                <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4>
+                <!-- <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div> -->
+                <!-- <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4> -->
+                <h3 class="text-center l-a text-banner-g">Publica tus ofertas laborales</h3>
+                <h3 class="text-center l-a text-banner-m">Alcanza a tu candidato ideal en tiempo record</h3>
+                <h3 class="text-center l-a text-banner-p">Publica tus ofertas laborales</h3>
                     <div class="grupo-btn-et">
-                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a>
-                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
-                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/home' }}">Busca tu empleo</a>
+                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa tu sesión</a>
+                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/register' }}">Crear tu cuenta</a>
+                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica Gratis</a>
+                    <a class="grupo-btn-et_azul" href="#" >VER PLANES</a>
+
+
+                    <!-- <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
+                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/home' }}">Busca tu empleo</a> -->
                 </div>
             </div>
         </div> 
