@@ -51,7 +51,7 @@
                 <div class="buscador">
                     <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo">
                     <select name="" id="" class="select-buscador">
-                        @foreach(App\Regions as $region)
+                        @foreach(App\Region::all() as $region)
                             <option value="{{ $region->id }}">{{ $region->name }}</option>
                         @endforeach
                     </select>
@@ -86,36 +86,28 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                <div class="row">
+                    <div class="row">
 
-                        <div class="col-md-6 cont-plan">
-                            <div class="card card-plan">
-                                <div class="card-body">
-                                    <h3 class="text-center title-plan">Plan 1</h3>
-                                    <p><strong>Publicaciones: </strong>5</p>
-                                    <p><strong>Conferencias: </strong>5</p>
-                                    <h4 class="text-center price-plan">$ 100</h4>
-                                    <p class="text-center">
-                                        <button class="btn btn-azul">Comprar</button>
-                                    </p>
+                        @foreach(App\Plan::all() as $plan)
+
+                            <div class="col-md-6 cont-plan">
+                                <div class="card card-plan">
+                                    <div class="card-body">
+                                        <h3 class="text-center title-plan">{{ $plan->title }}</h3>
+                                        <p><strong>Publicaciones: </strong>{{ $plan->post_amount }}</p>
+                                        <p><strong>Conferencias: </strong>{{ $plan->conference_amount }}</p>
+                                        <h4 class="text-center price-plan">$ {{ number_format($plan->price, 0, ",", ".") }}</h4>
+                                        <!--<p class="text-center">
+                                            <button class="btn btn-azul">Comprar</button>
+                                        </p>-->
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
-                        <div class="col-md-6 cont-plan">
-                            <div class="card card-plan">
-                                <div class="card-body">
-                                    <h3 class="text-center title-plan">Plan 1</h3>
-                                    <p><strong>Publicaciones: </strong>5</p>
-                                    <p><strong>Conferencias: </strong>5</p>
-                                    <h4 class="text-center price-plan">$ 100</h4>
-                                    <p class="text-center">
-                                        <button class="btn btn-azul">Comprar</button>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                   </div>
+                        @endforeach
+                        
+                    </div>
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
