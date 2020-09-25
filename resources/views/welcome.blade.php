@@ -124,107 +124,15 @@
             <div class="container ofertas-opciones">
                 <div class="row ofertas-opciones-row">
                     
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2 ofertas-opciones-item">
-                        <a href="#"> 
-                            <p class="text-center">
-                                <img style="width: 100%;" src="{{ url('/assets/img/client.png') }}">
-                            </p>
-                        </a>
-                    </div>
+                    @foreach(App\LandingBusiness::all() as $landing)
+                        <div class="col-md-2 ofertas-opciones-item">
+                            <a href="#"> 
+                                <p class="text-center">
+                                    <img style="width: 100%;" src="{{ $landing->image }}">
+                                </p>
+                            </a>
+                        </div>
+                    @endforeach
                     
                 
                 </div>
