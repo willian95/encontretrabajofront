@@ -14,9 +14,9 @@
             <li><a class="item-menu_a" href="{{ url('/') }}">Inicio</a></li>
             <li><a class="item-menu_a" href="#">Historia</a></li>
             <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/home' }}">Buscar Empleos</a></li>
-            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta</a></li>
+            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/offers/create' }}"  style="color: #ffc107;">Publica tu oferta</a></li>
             <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/register' }}">Crea tu cuenta</a></li>
-            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a></li>
+            <li><a class="item-menu_a menu-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a></li>
         </ul>
     </section>            
       <!--Banner-->

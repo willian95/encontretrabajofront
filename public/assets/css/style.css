@@ -45,6 +45,11 @@ a:hover {
     display: none;
 }
 /*menu*/
+a.item-menu_a.menu-btn-et_a {
+    background: #26988a;
+    padding: 8px;
+    border-radius: 5px;
+}
 
 .top-nav {
     display: flex;
