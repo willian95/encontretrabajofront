@@ -197,7 +197,7 @@
                 <a class="nav-link link-tab-opcion-en-web active" data-toggle="tab" href="#home">Localización</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu1">Cargos profesionales</a>
+                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu1">Salarios</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu2">Categorias</a>
@@ -208,12 +208,35 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div id="home" class="container tab-pane active"><br>
-                <h3>Localización</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>Localización</h3>
+                    <div class="row categorias-row">
+                        
+                        @foreach(App\Region::all() as $region)
+
+                            <div class="col-12">
+                                <h3>{{ $region->name }}</h3>
+                            </div>
+
+                            @foreach(App\Commune::where("region_id", $region->id)->get() as $commune)
+                                <div class="col-md-3">
+                                    {{ $commune->name }}
+                                </div>
+                            @endforeach
+
+                        @endforeach
+                            
+                    </div>
                 </div>
                 <div id="menu1" class="container tab-pane fade"><br>
-                <h3>Cargos profesionales</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <h3>Salarios</h3>
+                   <div class="row">
+                        @foreach(App\Offer::where("status", "abierto")->groupBy('min_wage', 'max_wage')->take(20)->get() as $salary)
+                            <div class="col-md-3">
+                                ${{ number_format($salary->min_wage, 0, ",", ".") }} @if($salary->max_wage)- ${{ number_format($salary->max_wage, 0, ",", ".") }}@endif
+                            </div>
+
+                        @endforeach
+                   </div>
                 </div>
                 <div id="menu2" class="container tab-pane fade"><br>
                     <div class="row categorias-row">
