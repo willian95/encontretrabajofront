@@ -12,8 +12,8 @@
         </label>
         <ul class="menu">
             <li><a class="item-menu_a" href="{{ url('/') }}">Inicio</a></li>
-            <!--<li><a class="item-menu_a" href="#">Historia</a></li>-->
-            <!--<li><a class="item-menu_a" href="#">Buscar Empleos</a></li>-->
+            <li><a class="item-menu_a" href="#">Historia</a></li>
+            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/home' }}">Buscar Empleos</a></li>
             <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta</a></li>
             <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/register' }}">Crea tu cuenta</a></li>
             <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a></li>
@@ -49,13 +49,13 @@
                 </div>
                 
                 <div class="buscador">
-                    <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo">
-                    <select name="" id="" class="select-buscador">
+                    <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo" id="job_search">
+                    <select name="" class="select-buscador" id="region_search">
                         @foreach(App\Region::all() as $region)
                             <option value="{{ $region->id }}">{{ $region->name }}</option>
                         @endforeach
                     </select>
-                    <button type="button" class="btn-lupa-et" href="#"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
+                    <button type="button" class="btn-lupa-et" onclick="storeQuery()"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
                 </div>
                 <!-- <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div> -->
                 <!-- <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4> -->
@@ -309,3 +309,40 @@
       </section>   
 
 @endsection
+
+@push("scripts")
+
+    <script>    
+        function storeQuery(){
+            
+            let jobSearch = $("#job_search").val()
+            let regionSearch = $("#region_search").val()
+            alert("region_search "+regionSearch)
+            if(jobSearch != null){
+                localStorage.setItem("encontre_trabajo_job_search", jobSearch)
+                localStorage.setItem("encontre_trabajo_region_search", regionSearch)
+                window.location.href="{{ url('/search') }}"
+            }
+            
+        }
+
+        $(document).ready(function(){
+            var input = document.getElementById("job_search");
+
+            // Execute a function when the user releases a key on the keyboard
+            input.addEventListener("keyup", function(event) {
+            // Number 13 is the "Enter" key on the keyboard
+            //alert("event")
+            if (event.keyCode === 13) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                storeQuery()
+                //document.getElementById("myBtn").click();
+            }
+            });
+        })
+
+    </script>
+
+@endpush

@@ -74,6 +74,7 @@
         <script src="{{ asset('assets/js/slick.min.js') }}"></script>
         <script src="{{ asset('assets/js/setting-slick.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="{{ asset('/js/app.js') }}"></script>
         <script>
             $(document).ready(function () {
                 setTimeout(function () {
@@ -84,5 +85,8 @@
         <script>
             new WOW().init();
         </script>
+
+        @stack('scripts')
+
     </body>
 </html>
