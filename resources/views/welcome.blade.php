@@ -197,10 +197,10 @@
                 <a class="nav-link link-tab-opcion-en-web active" data-toggle="tab" href="#home">Localización</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu1">Salarios</a>
+                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu2">Categorias</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu2">Categorias</a>
+                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu1">Salarios</a>
                 </li>
                 
             </ul>
@@ -214,7 +214,7 @@
                         @foreach(App\Region::all() as $region)
 
                             <div class="col-12">
-                                <h3>{{ $region->name }}</h3>
+                                <h5>{{ $region->name }}</h5>
                             </div>
 
                             @foreach(App\Commune::where("region_id", $region->id)->get() as $commune)
@@ -237,6 +237,10 @@
 
                         @endforeach
                    </div>
+                </div>
+                <div id="menu3" class="container tab-pane fade"><br>
+                <h3>Categorias</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                 </div>
                 <div id="menu2" class="container tab-pane fade"><br>
                     <div class="row categorias-row">
@@ -280,10 +284,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div id="menu3" class="container tab-pane fade"><br>
-                <h3>Categorias</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                 </div>
             </div>
         </div>
