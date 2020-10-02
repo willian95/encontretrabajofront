@@ -2,23 +2,7 @@
 
 @section('content')
 
-    <section class="top-nav">
-        <div>
-            <img src="assets/img/encontre-trabajo-blanco.png" alt="">
-        </div>
-        <input id="menu-toggle" type="checkbox" />
-        <label class='menu-button-container' for="menu-toggle">
-            <div class='menu-button'></div>
-        </label>
-        <ul class="menu">
-            <li><a class="item-menu_a" href="{{ url('/') }}">Inicio</a></li>
-            <li><a class="item-menu_a" href="#">Historia</a></li>
-            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/home' }}">Buscar Empleos</a></li>
-            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/offers/create' }}"  style="color: #ffc107;">Publica tu oferta</a></li>
-            <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/register' }}">Crea tu cuenta</a></li>
-            <li><a class="item-menu_a menu-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a></li>
-        </ul>
-    </section>            
+    @include('partials.navbar')         
       <!--Banner-->
     <section class="banner">
         <div id="demo" class="carrusel-principal" data-ride="carousel">
@@ -210,20 +194,37 @@
                 <div id="home" class="container tab-pane active"><br>
                     <h3>Localización</h3>
                     <div class="row categorias-row">
-                        
-                        @foreach(App\Region::all() as $region)
 
-                            <div class="col-12">
-                                <h5>{{ $region->name }}</h5>
-                            </div>
+                        <div class="col-12">
+                            <div class="accordion" id="accordionExample">
+                                @foreach(App\Region::all() as $region)
+                                <div class="card">
+                                    <div class="card-header" id="heading{{$loop->index + 1}}">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index + 1}}" aria-expanded="true" aria-controls="collapse{{$loop->index + 1}}">
+                                        {{ $region->name }}
+                                        </button>
+                                    </h2>
+                                    </div>
 
-                            @foreach(App\Commune::where("region_id", $region->id)->get() as $commune)
-                                <div class="col-md-3">
-                                    {{ $commune->name }}
+                                    <div id="collapse{{$loop->index + 1}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    @foreach(App\Commune::where("region_id", $region->id)->get() as $commune)
+                                                        <div class="col-md-3">
+                                                            <a href="#" onclick="jobsInCommunes('{{ $commune->id }}')">{{ $commune->name }}</a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            @endforeach
+                                @endforeach
 
-                        @endforeach
+                            </div>
+                        </div>
                             
                     </div>
                 </div>
@@ -340,7 +341,7 @@
             
             let jobSearch = $("#job_search").val()
             let regionSearch = $("#region_search").val()
-            alert("region_search "+regionSearch)
+           
             if(jobSearch != null){
                 localStorage.setItem("encontre_trabajo_job_search", jobSearch)
                 localStorage.setItem("encontre_trabajo_region_search", regionSearch)
@@ -349,7 +350,20 @@
             
         }
 
+        function jobsInCommunes(commune){
+            
+            //alert(commune)
+            localStorage.setItem("encontre_trabajo_commune_search", commune)
+            window.location.href="{{ url('/search') }}"
+        
+        }
+
         $(document).ready(function(){
+
+            localStorage.removeItem("encontre_trabajo_job_search")
+            localStorage.removeItem("encontre_trabajo_region_search")
+            localStorage.removeItem("encontre_trabajo_commune_search")
+
             var input = document.getElementById("job_search");
 
             // Execute a function when the user releases a key on the keyboard

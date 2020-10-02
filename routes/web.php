@@ -19,3 +19,8 @@ Route::get('/', function () {
 
 Route::get("/search", "SearchController@index");
 Route::post("/search", "SearchController@search");
+
+Route::post("/search/commune", "SearchController@communeSearch");
+
+Route::get("/jobs", "JobController@index");
+Route::post("/jobs", "JobController@getOffers");

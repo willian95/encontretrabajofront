@@ -9,13 +9,6 @@
         <div class="container">
 
             <div class="row" v-cloak >   
-                <div class="col-12">
-                    <h3 v-if="jobSearch"><strong>Resultados de: </strong>@{{ jobSearch }}</h3>
-                </div>
-
-                <div class="col-12" v-if="offers.length == 0">
-                    <h3 class="text-center">No hay trabajos para tus criterios de búsqueda</h3>
-                </div>
 
                 <div class="col-md-4" v-for="offer in offers">
                     <div class="card">
@@ -72,9 +65,6 @@
             el: '#search-dev',
             data() {
                 return {
-                    jobSearch:"",
-                    regionSearch:"",
-                    communeSearch:"",
                     offers:[],
                     page:1,
                     pages:0
@@ -82,20 +72,9 @@
             },
             methods: {
 
-                async query(){
+                async jobs(){
 
-                    let offersRes = await axios.post("{{ url('/search') }}", {job_search: this.search, region_id: this.regionSearch, page: this.page})
-                    if(offersRes.data.success == true){
-
-                        this.offers = offersRes.data.offers
-                        this.pages = Math.ceil(offersRes.data.offersCount / offersRes.data.dataAmount)
-                        
-                    }
-
-                },
-                async communeQuery(){
-
-                    let offersRes = await axios.post("{{ url('/search/commune') }}", {communeSearch: this.communeSearch, page: this.page})
+                    let offersRes = await axios.post("{{ url('/jobs') }}", {page: this.page})
                     if(offersRes.data.success == true){
 
                         this.offers = offersRes.data.offers
@@ -107,14 +86,8 @@
 
             },
             created(){
-                this.jobSearch = localStorage.getItem("encontre_trabajo_job_search")
-                this.regionSearch = localStorage.getItem("encontre_trabajo_region_search")
-                this.communeSearch = localStorage.getItem("encontre_trabajo_commune_search")
-                if(this.jobSearch && this.regionSearch){
-                    this.query()
-                }else{
-                    this.communeQuery()
-                }
+                
+                this.jobs()
                 
             }
 
