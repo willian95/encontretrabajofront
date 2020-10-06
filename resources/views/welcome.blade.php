@@ -25,53 +25,51 @@
                 @endforeach--}}
            
             
-        <div class="carrusel-principal-inf">
- 
-            <div style="width: 100%; height: 100%; top: 0; position: absolute; background-color: rgba(0, 0, 0, 0.2)">
-                <div class="carrusel-principal-inf-logo">
-                    <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logop.png') }}" alt=""></div>
-                </div>
-                
-                <div class="buscador">
-                    <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo" id="job_search">
-                    <select name="" class="select-buscador" id="region_search">
-                        @foreach(App\Region::all() as $region)
-                            <option value="{{ $region->id }}">{{ $region->name }}</option>
-                        @endforeach
-                    </select>
-                    <button type="button" class="btn-lupa-et" onclick="storeQuery()"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
-                </div>
-                <!-- <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div> -->
-                <!-- <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4> -->
-                <h3 class="text-center l-a text-banner-g">Publica tus ofertas laborales</h3>
-                <h3 class="text-center l-a text-banner-m">Alcanza a tu candidato ideal en tiempo record</h3>
-                <h3 class="text-center l-a text-banner-p">Publica tus ofertas laborales</h3>
-                    <div class="grupo-btn-et">
-                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa tu sesión</a>
-                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/register' }}">Crear tu cuenta</a>
-                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica Gratis</a>
-                    <a class="grupo-btn-et_azul" href="#" data-toggle="modal" data-target="#myModal" >VER PLANES</a>
+            <div class="carrusel-principal-inf">
+    
+                <div style="width: 100%; height: 100%; top: 0; position: absolute; background-color: rgba(0, 0, 0, 0.2)">
+                    <div class="carrusel-principal-inf-logo">
+                        <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logop.png') }}" alt=""></div>
+                    </div>
+                    
+                    <div class="buscador">
+                        <input class="buscador-et" type="text" placeholder="Busca tu nuevo trabajo" id="job_search">
+                        <select name="" class="select-buscador" id="region_search">
+                            @foreach(App\Region::all() as $region)
+                                <option value="{{ $region->id }}">{{ $region->name }}</option>
+                            @endforeach
+                        </select>
+                        <button type="button" class="btn-lupa-et" onclick="storeQuery()"> <img class="buscador_img" src="{{ asset('assets/img/lupa-buscador.png') }}" alt=""> </button>
+                    </div>
+                    <!-- <div class="div-postulate"><a class=" btn-et" href="{{ env('PLATFORM_URL').'/register' }}">Postulate YA</a></div> -->
+                    <!-- <h4 class="text-center text-azul">Más de 300 trabajos esperan por ti</h4> -->
+                    <h3 class="text-center l-a text-banner-g">Publica tus ofertas laborales</h3>
+                    <h3 class="text-center l-a text-banner-m">Alcanza a tu candidato ideal en tiempo record</h3>
+                    <h3 class="text-center l-a text-banner-p">Publica tus ofertas laborales</h3>
+                        <div class="grupo-btn-et">
+                        <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa tu sesión</a>
+                        <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/register' }}">Crear tu cuenta</a>
+                        <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica Gratis</a>
+                        <a class="grupo-btn-et_azul" href="#" data-toggle="modal" data-target="#myModal" >VER PLANES</a>
 
 
-                    <!-- <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
-                    <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/home' }}">Busca tu empleo</a> -->
+                        <!-- <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/offers/create' }}">Publica tu oferta laboral gratis</a>
+                        <a class="grupo-btn-et_a" href="{{ env('PLATFORM_URL').'/home' }}">Busca tu empleo</a> -->
+                    </div>
                 </div>
-            </div>
-        </div> 
+            </div> 
+        </section>
         <div class="modal " id="myModal">
             <div class="modal-dialog modal-planes">
                 <div class="modal-content">
-
                 <!-- Modal Header -->
                 <div class="modal-header text-center-plan-t">
                     <h4 class="modal-title text-center">Nuestros Planes</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <div class="row">
-
+                    <!-- <div class="row">
                         @foreach(App\Plan::all() as $plan)
 
                             <div class="col-md-6 cont-plan">
@@ -80,18 +78,240 @@
                                         <h3 class="text-center title-plan">{{ $plan->title }}</h3>
                                         <p><strong>Publicaciones: </strong>{{ $plan->post_amount }}</p>
                                         <p><strong>Conferencias: </strong>{{ $plan->conference_amount }}</p>
-                                        <h4 class="text-center price-plan">$ {{ number_format($plan->price, 0, ",", ".") }}</h4>
+                                        <h4 class="text-center price-plan">$ {{ number_format($plan->price, 0, ",", ".") }}</h4> -->
                                         <!--<p class="text-center">
                                             <button class="btn btn-azul">Comprar</button>
                                         </p>-->
+                                    <!-- </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>  -->
+                    <!-- <h4 class="modal-title text-center">Nuestros Planes</h4> -->
+                    <div id="cplan" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#cplan" data-slide-to="0" class="active"></li>
+                        <li data-target="#cplan" data-slide-to="1"></li>
+                        <li data-target="#cplan" data-slide-to="2"></li>
+                    </ul>
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="content-plan">   
+                                <div class=" card-planes mb-3 mt-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">10 Avisos</h2>
+                                        <h3 class="text-center"><small class="">$</small>30.960</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <div class="box-waves">
+                                            <div class="box-waves_img">
+                                                <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>4 publicaciones simples.</li>
+                                                    <li>1 publicacion destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 10 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
-
-                        @endforeach
-                        
+                        </div>
+                        <div class="carousel-item">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3 mt-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos Destacados</h2>
+                                        <h3 class="text-center"><small class="">$</small>6.450</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <div class="box-waves">
+                                            <div class="box-waves_img">
+                                                <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Se destaca dentro de las primeras del portal de su categoria</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Descarga de Curriculum Vitae</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3 mt-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">5 Avisos</h2>
+                                        <h3 class="text-center"><small class="">$</small>15.480</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <div class="box-waves">
+                                            <div class="box-waves_img">
+                                                <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>4 publicaciones simples.</li>
+                                                    <li>1 publicación destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3 mt-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">7 Avisos</h2>
+                                        <h3 class="text-center"><small class="">$</small>23.030</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <div class="box-waves">
+                                            <div class="box-waves_img">
+                                                <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>4 publicaciones simples.</li>
+                                                    <li>1 publicacion destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidaro.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 10 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="content-plan">                           
+                                <div class=" card-planes mb-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos Anuales</h2>
+                                        <h3 class="text-center"><small class="">$</small>259.290</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <div class="box-waves">
+                                            <div class="box-waves_img">
+                                                <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Publicaciones simples ilimitadas por 12 meses.</li>
+                                                    <li>15 publicación destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 25 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="content-plan">                            
+                                <div class=" card-planes mb-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos simples</h2>
+                                        <h3 class="text-center"><small class="">$</small>3.870</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <div class="box-waves">
+                                            <div class="box-waves_img">
+                                                <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidaro.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos semestrales</h2>
+                                        <h3 class="text-center"><small class="">$</small>148.350</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <div class="box-waves">
+                                            <div class="box-waves_img">
+                                                <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Publicaciones  simples ilimitadas por 6 meses.</li>
+                                                    <li>10 publicación destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 15 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#cplan" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#cplan" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    </a>
+                    </div>
+                    
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
@@ -100,9 +320,7 @@
 
                 </div>
             </div>
-            </div>
-    </section>
-        
+        </div>
         <section class="ofertas">
             <h3  class=" text-center text-azul">Empresas que <strong><u>publican con nosotros</u></strong></h3>
             <div class="container ofertas-opciones">
@@ -331,7 +549,7 @@
                 </div>
           </div>
       </section>   
-
+                    
 @endsection
 
 @push("scripts")
@@ -381,5 +599,6 @@
         })
 
     </script>
+    
 
 @endpush

@@ -41,8 +41,8 @@ a:hover {
 }
 /*carrusel*/
 .carousel-control-next, .carousel-control-prev {
-    /* z-index: 9; */
-    display: none;
+    z-index: 9;
+    /* display: none; */
 }
 /*menu*/
 a.item-menu_a.menu-btn-et_a {
@@ -325,10 +325,10 @@ a.item-menu_a.menu-btn-et_a {
         margin-top: 110px!important;}
   
 
-    .modal-dialog.modal-planes {
+    /* .modal-dialog.modal-planes {
         max-width: 95%;
         margin: 10px auto;
-    }
+    } */
     .carrusel-principal-inf-logo-img {
         height: 50px!important;
     }
@@ -664,10 +664,10 @@ button.btn.btn-azul {
     font-weight: bold;
     padding-bottom: 20px;
 }
-.modal-dialog.modal-planes {
+/* .modal-dialog.modal-planes {
     max-width: 80%;
     margin: 10px auto;
-}
+} */
 .cont-plan {
     width: 100%;
     display: flex;
@@ -694,3 +694,98 @@ button.btn.btn-azul {
 
 
 }
+/*planes*/
+ul.box-waves-text_ul li:before {
+    content: "• ";
+    font-weight: bold;
+}
+.img-planes img {
+    width: 60px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.card-planes h2 {
+    font-weight: bold;
+    font-size: 20px;
+}
+.card-planes h3 {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.card.card-planes small {
+    font-size: 18px;
+}
+.card-planes .card-body {
+    padding: 0;
+    margin: 0;
+}
+.card-planes {
+    margin: 15px;
+    min-width: 250px;
+
+}
+.box-waves {
+    /* min-width: 250px; */
+
+    min-height: 350px;
+    height: 350px;
+    position: relative;
+}
+.box-waves_img img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0 0 8px 8px;
+    
+}
+.box-waves-text {
+    position: absolute;
+    top: 120px;
+    color: #fff;
+    /* background: #00649a; */
+    width: 100%;
+    padding: 5px;
+    /* height: -webkit-fill-available; */
+    /* margin: 0; */
+}
+.card-planes h6 {
+    font-size: 12px;
+}
+/* .content-plan:focus {
+
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+} */
+/* .slick-dots li {
+    position: relative;
+    background: #1675a9;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50px;
+}
+li.slick-active {
+    background: #26988a;
+} */
+/* .slick-dots li button:before {
+    content: "";
+} */
+/* .slick-prev, .slick-next {
+    display: none!important;
+} */
+.slick-track {
+    width: 100%;
+}
+/* .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  } */
