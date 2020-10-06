@@ -150,6 +150,7 @@ a.item-menu_a.menu-btn-et_a {
   }
 
   @media (max-width: 768px) {
+    
     a.item-menu_a.menu-btn-et_a {
         padding: 5px;
         display: flex;
@@ -318,6 +319,9 @@ a.item-menu_a.menu-btn-et_a {
   }
 
   @media (max-width: 320px){
+    .row.categorias-row h4 {
+        font-size: 11px;
+    }
     img.carrusel-principal-inf-logo-img_img {
         height: 80px!important; 
     }
@@ -529,6 +533,9 @@ h5.buscar-empleo-localizacion_h5 {
     padding-left: 5px;
     margin-bottom: 20px;
 }
+.categorias-row h4 {
+    font-size: 14px;
+}
 li.categorias-row-col-3_li {
     margin-bottom: 4px;
 }
@@ -730,12 +737,12 @@ ul.box-waves-text_ul li:before {
 .box-waves {
     /* min-width: 250px; */
 
-    min-height: 350px;
-    height: 350px;
+    min-height: 400px;
+    height: 400px;
     position: relative;
 }
 .box-waves_img img {
-    height: 350px;
+    height: 400px;
     width: 100%;
     object-fit: cover;
     border-radius: 0 0 8px 8px;

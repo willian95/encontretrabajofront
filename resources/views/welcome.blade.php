@@ -390,7 +390,7 @@
             </div>
         </div>
       </section>
-      <section class="buscar-empleo-localizacion">
+      <section class="buscar-empleo-localizacion mb-2">
         <div class="container">
             <!--<h5 class="buscar-empleo-localizacion_h5"> Buscar empleos por localización</h5>-->
             <!-- Nav tabs -->
@@ -420,7 +420,7 @@
                                     <div class="card-header" id="heading{{$loop->index + 1}}">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index + 1}}" aria-expanded="true" aria-controls="collapse{{$loop->index + 1}}">
-                                        {{ $region->name }}
+                                        <h4>{{ $region->name }}</h4>
                                         </button>
                                     </h2>
                                     </div>
