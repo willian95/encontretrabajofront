@@ -88,14 +88,12 @@
                         @endforeach
                     </div>  -->
                     <!-- <h4 class="modal-title text-center">Nuestros Planes</h4> -->
-                    <div id="cplan" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
+                    <!-- <div id="cplan" class="carousel slide" data-ride="carousel">
                     <ul class="carousel-indicators">
                         <li data-target="#cplan" data-slide-to="0" class="active"></li>
                         <li data-target="#cplan" data-slide-to="1"></li>
                         <li data-target="#cplan" data-slide-to="2"></li>
                     </ul>
-                    <!-- The slideshow -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="content-plan">   
@@ -111,7 +109,6 @@
 
                                         <div class="box-waves fondo-az">
                                             <div class="box-waves_img">
-                                                <!-- <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves"> -->
                                             </div>
 
                                             <div class="box-waves-text fondo-az">
@@ -143,7 +140,6 @@
                                         <img class="wave_img"  src="{{ asset('assets/img/wamarillo.svg') }}" alt="waves">
                                         <div class="box-waves fondo-am">
                                             <div class="box-waves_img">
-                                                <!-- <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves"> -->
                                             </div>
 
                                             <div class="box-waves-text">
@@ -174,7 +170,6 @@
 
                                         <div class="box-waves fondo-az">
                                             <div class="box-waves_img">
-                                                <!-- <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves"> -->
                                             </div>
                                             <div class="box-waves-text">
                                                 <ul class="text-center box-waves-text_ul ">
@@ -205,7 +200,6 @@
 
                                         <div class="box-waves fondo-az">
                                             <div class="box-waves_img">
-                                                <!-- <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves"> -->
                                             </div>
                                             <div class="box-waves-text">
                                                 <ul class="text-center box-waves-text_ul ">
@@ -236,7 +230,6 @@
                                         <img class="wave_img" src="{{ asset('assets/img/wverde.svg') }}" alt="waves">
                                         <div class="box-waves fondo-ve">
                                             <div class="box-waves_img">
-                                                <!-- <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves"> -->
                                             </div>
                                             <div class="box-waves-text">
                                                 <ul class="text-center box-waves-text_ul ">
@@ -268,7 +261,6 @@
 
                                         <div class="box-waves fondo-am">
                                             <div class="box-waves_img">
-                                                <!-- <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves"> -->
                                             </div>
                                             <div class="box-waves-text">
                                                 <ul class="text-center box-waves-text_ul ">
@@ -297,7 +289,229 @@
 
                                         <div class="box-waves fondo-ve">
                                             <div class="box-waves_img">
-                                                <!-- <img src="{{ asset('assets/img/fondorojo.png') }}" alt="waves"> -->
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Publicaciones  simples ilimitadas por 6 meses.</li>
+                                                    <li>10 publicación destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 15 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#cplan" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#cplan" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    </a>
+                    </div>  -->
+                    
+
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-3">
+                            <div class="content-plan">   
+                                <div class=" card-planes mb-3 mt-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">10 Avisos</h2>
+                                        <h3 class="text-center"><small class="">$</small>30.960</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <img class="wave_img" src="{{ asset('assets/img/wazul.svg') }}" alt="waves">
+
+                                        <div class="box-waves fondo-az">
+                                            <div class="box-waves_img">
+                                            </div>
+
+                                            <div class="box-waves-text fondo-az">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>4 publicaciones simples.</li>
+                                                    <li>1 publicacion destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 10 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3 mt-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos Destacados</h2>
+                                        <h3 class="text-center"><small class="">$</small>6.450</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <img class="wave_img"  src="{{ asset('assets/img/wamarillo.svg') }}" alt="waves">
+                                        <div class="box-waves fondo-am">
+                                            <div class="box-waves_img">
+                                            </div>
+
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Se destaca dentro de las primeras del portal de su categoria</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Descarga de Curriculum Vitae</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3 mt-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">5 Avisos</h2>
+                                        <h3 class="text-center"><small class="">$</small>15.480</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <img class="wave_img" src="{{ asset('assets/img/wazul.svg') }}" alt="waves">
+
+                                        <div class="box-waves fondo-az">
+                                            <div class="box-waves_img">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>4 publicaciones simples.</li>
+                                                    <li>1 publicación destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">7 Avisos</h2>
+                                        <h3 class="text-center"><small class="">$</small>23.030</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <img class="wave_img" class="waves_img" src="{{ asset('assets/img/wazul.svg') }}" alt="waves">
+
+                                        <div class="box-waves fondo-az">
+                                            <div class="box-waves_img">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>4 publicaciones simples.</li>
+                                                    <li>1 publicacion destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidaro.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 10 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-plan">                           
+                                <div class=" card-planes mb-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos Anuales</h2>
+                                        <h3 class="text-center"><small class="">$</small>259.290</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <img class="wave_img" src="{{ asset('assets/img/wverde.svg') }}" alt="waves">
+                                        <div class="box-waves fondo-ve">
+                                            <div class="box-waves_img">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Publicaciones simples ilimitadas por 12 meses.</li>
+                                                    <li>15 publicación destacada.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidato.</li>
+                                                    <li>Podrás entrar al motor de búsqueda y descargar 25 perfiles.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-plan">                            
+                                <div class=" card-planes mb-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos simples</h2>
+                                        <h3 class="text-center"><small class="">$</small>3.870</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <img class="wave_img" src="{{ asset('assets/img/wamarillo.svg') }}" alt="waves">
+
+                                        <div class="box-waves fondo-am">
+                                            <div class="box-waves_img">
+                                            </div>
+                                            <div class="box-waves-text">
+                                                <ul class="text-center box-waves-text_ul ">
+                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li>Duración de 30 días.</li>
+                                                    <li>Descarga de Curriculum Vitae.</li>
+                                                    <li>Video de Presentación del Candidaro.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-plan">
+                                <div class=" card-planes mb-3">
+                                    <div class="card">
+                                        <div class="img-planes d-flex justify-content-center">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                        </div>
+                                        <h2 class="text-center text-uppercase">Avisos semestrales</h2>
+                                        <h3 class="text-center"><small class="">$</small>148.350</h3>
+                                        <h6 class="text-center text-uppercase">iva incluido</h6>
+                                        <img class="wave_img" src="{{ asset('assets/img/wverde.svg') }}" alt="waves">
+
+                                        <div class="box-waves fondo-ve">
+                                            <div class="box-waves_img">
                                             </div>
                                             <div class="box-waves-text">
                                                 <ul class="text-center box-waves-text_ul ">
@@ -317,15 +531,7 @@
                         </div>
                     </div>
 
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#cplan" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#cplan" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    </a>
-                    </div>
-                    
+
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
