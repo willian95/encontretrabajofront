@@ -150,7 +150,15 @@ a.item-menu_a.menu-btn-et_a {
   }
 
   @media (max-width: 768px) {
-    
+    .modal-planes .col-md-3 {
+        -ms-flex: 0 0 33%;
+        flex: 0 0 33%;
+        max-width: 33%;
+    }
+    .card-planes h2 {
+        font-size: 18px;
+    }
+   
     a.item-menu_a.menu-btn-et_a {
         padding: 5px;
         display: flex;
@@ -319,6 +327,10 @@ a.item-menu_a.menu-btn-et_a {
   }
 
   @media (max-width: 320px){
+    .modal-dialog.modal-planes {
+        max-width: 100%;
+      
+    }
     .row.categorias-row h4 {
         font-size: 11px;
     }
@@ -671,10 +683,15 @@ button.btn.btn-azul {
     font-weight: bold;
     padding-bottom: 20px;
 }
-/* .modal-dialog.modal-planes {
-    max-width: 80%;
-    margin: 10px auto;
-} */
+.modal-dialog.modal-planes {
+    max-width: 100%;
+    margin: 10px;
+  
+}
+div#myModal {
+    padding: 0;
+    padding-left: 0!important;
+}
 .cont-plan {
     width: 100%;
     display: flex;
@@ -730,10 +747,11 @@ ul.box-waves-text_ul li:before {
     margin: 0;
 }
 .card-planes {
-    margin: 15px;
-    min-width: 250px;
+    /* margin: 15px; */
+    /* min-width: 250px; */
 
 }
+
 .box-waves {
     /* min-width: 250px; */
 
