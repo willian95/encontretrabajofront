@@ -82,17 +82,6 @@
             },
             methods: {
 
-                async query(){
-
-                    let offersRes = await axios.post("{{ url('/search') }}", {job_search: this.search, region_id: this.regionSearch, page: this.page})
-                    if(offersRes.data.success == true){
-
-                        this.offers = offersRes.data.offers
-                        this.pages = Math.ceil(offersRes.data.offersCount / offersRes.data.dataAmount)
-                        
-                    }
-
-                },
                 async communeQuery(){
 
                     let offersRes = await axios.post("{{ url('/search/commune') }}", {communeSearch: this.communeSearch, page: this.page})
@@ -107,14 +96,10 @@
 
             },
             created(){
-                this.jobSearch = localStorage.getItem("encontre_trabajo_job_search")
-                this.regionSearch = localStorage.getItem("encontre_trabajo_region_search")
+                
                 this.communeSearch = localStorage.getItem("encontre_trabajo_commune_search")
-                if(this.jobSearch && this.regionSearch){
-                    this.query()
-                }else{
-                    this.communeQuery()
-                }
+                this.communeQuery()
+                
                 
             }
 

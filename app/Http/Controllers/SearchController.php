@@ -12,9 +12,36 @@ class SearchController extends Controller
         return view("search");
     }
 
+    function jobs(){
+        return view("jobs");
+    }
+
     function search(Request $request){
 
         try{
+            $search = "";
+            if($request->job_search == null && $request->region_id == null){
+                $search = "1=1";
+
+                $dataAmount = 18;
+                $skip = ($request->page - 1) * $dataAmount;
+
+                $offers = Offer::with("user")->has("user")->where("status", "abierto")
+                ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+                ->take($dataAmount)
+                ->orderBy("id", "desc")
+                ->get();
+
+                $offersCount = Offer::with("user")->has("user")
+                ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+                ->orderBy("id", "desc")
+                ->count();
+
+                return response()->json(["success" => true, "offers" => $offers, "offersCount" => $offersCount, "dataAmount" => $dataAmount]);
+
+            }
+
+           
 
             $words = explode(' ',strtolower($request->job_search)); // coloco cada palabra en un espacio del array
             $wordsToDelete = array('de');
@@ -45,6 +72,7 @@ class SearchController extends Controller
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
             ->take($dataAmount)
             ->orderBy("id", "desc")
+            ->whereRaw($search)
             ->get();
 
             $offersCount = Offer::with("user")->has("user")
@@ -66,6 +94,7 @@ class SearchController extends Controller
             })
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
             ->orderBy("id", "desc")
+            ->whereRaw($search)
             ->count();
 
             return response()->json(["success" => true, "offers" => $offers, "offersCount" => $offersCount, "dataAmount" => $dataAmount]);

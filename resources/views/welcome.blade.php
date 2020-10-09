@@ -577,7 +577,7 @@
             if(jobSearch != null){
                 localStorage.setItem("encontre_trabajo_job_search", jobSearch)
                 localStorage.setItem("encontre_trabajo_region_search", regionSearch)
-                window.location.href="{{ url('/search') }}"
+                window.location.href="{{ url('/jobs') }}"
             }
             
         }

@@ -8,7 +8,7 @@
     </label>
     <ul class="menu">
         <li><a class="item-menu_a" href="{{ url('/') }}">Inicio</a></li>
-        <li><a class="item-menu_a" href="#">Historia</a></li>
+        <li><a class="item-menu_a" href="#">Quienes Somos</a></li>
         <li><a class="item-menu_a" href="{{ url('/jobs') }}">Buscar Empleos</a></li>
         <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/offers/create' }}"  style="color: #ffc107;">Publica tu oferta</a></li>
         <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/register' }}">Crea tu cuenta</a></li>
