@@ -43,32 +43,35 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-7">
 
-                    <div class="col-12" v-for="offer in offers">
-                        <div class="card">
-                            <div class="card-body">
+                    <div class="col-12" v-for="offer in offers" style="margin-bottom: 1rem; padding-right: 2rem; padding-left: 2rem;">
+                        <div class="card" data-toggle="modal" data-target="#jobModal" style="cursor: pointer;" @click="show(offer)">
+                            <div class="card-body" style="padding: 0.6rem !important">
                                 <div class="row">
                                     <div class="col-3">
                                         <p class="text-center">
-                                            <img class="round-img" :src="offer.user.image" alt="Card image" style="width: 60px;">
+                                            <img class="round-img" :src="offer.user.image" alt="Card image" style="width: 75px;">
                                         </p>
                                     </div>
                                     <div class="col-9">
                                         <h5 class="card-title">@{{ offer.job_position }}</h5>
-                                        <p class="text-b">@{{ offer.user.business_name }}</p>
+                                        <small class="text-b">@{{ offer.user.region.name }}, @{{ offer.user.commune.name }}</small>
                                         <p class="price-op">
                                             $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} <span v-if="offer.max_wage != null">- $ @{{ parseInt(offer.max_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</span>
                                         </p>
+                                        <p>
+                                            @{{ offer.description.substring(0, 60) }}
+                                            <span v-if="offer.description.length > 60">
+                                                ...
+                                            </span>
+                                        </p>
                                     </div>
-                                    <div class="col-4">
-                                        <p class="card-text text-center">@{{ offer.title }}</p>
-                                    </div>
-                                    <div class="col-8">
+                                    {{--<div class="col-12">
                                         <p class="text-right">
                                             <a :href="'{{ env('PLATFORM_URL') }}'+'/offers/detail/'+offer.slug" class="btn btn-primary">Ver más</a>
                                         </p>
-                                    </div>
+                                    </div>--}}
                                 
                                 </div>
 
@@ -98,14 +101,65 @@
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <img style="width: 100%;" class="publicidad" src="{{ asset('assets/img/Banner-Epson-Movil.jpg') }}" alt="publicidad">
                     <img style="width: 100%;" class="publicidad" src="{{ asset('assets/img/Banner-Epson-Movil.jpg') }}" alt="publicidad">
                 </div>
                 
             </div>
 
-            {{----}}
+            <div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-center">
+                                        <img :src="image" alt="" style="width: 120px">
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p>
+                                    $ @{{ parseInt(minWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} <span v-if="maxWage > 0">- $ @{{ parseInt(maxWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</span>
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p>
+                                        <strong>Titulo: </strong> @{{ title }}
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p>
+                                        <strong>Categoría: </strong> @{{ category }}
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p>
+                                        <strong>Puesto: </strong> @{{ jobPosition }}
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p>
+                                        <strong>Descripción: </strong> @{{ description }}
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="text-center">
+                                        <a :href="'{{ env('PLATFORM_URL') }}'+'/offers/detail/'+slug" class="btn btn-primary">Postular </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -124,9 +178,18 @@
                     regionSearch:"",
                     offers:[],
                     regions:[],
-                    categories:[],
+                    categories:[],  
                     page:1,
-                    pages:0
+                    pages:0,
+                    image:"",
+                    title:"",
+                    description:"",
+                    category:"",
+                    minWage:"",
+                    maxWage:"",
+                    jobPosition:"",
+                    slug:""
+
                 }
             },
             methods: {
@@ -142,6 +205,17 @@
                     }
 
                 },*/
+                show(offer){
+                    console.log("offer", offer)
+                    this.image = offer.user.image
+                    this.title = offer.title
+                    this.category = offer.category.name
+                    this.description = offer.description
+                    this.minWage = offer.min_wage
+                    this.maxWage = offer.max_wage
+                    this.jobPosition = offer.job_position
+                    this.slug = offer.slug
+                },
                 fetchRegions(){
 
                     axios.get("{{ url('/regions/all') }}").then(res => {

@@ -26,13 +26,13 @@ class SearchController extends Controller
                 $dataAmount = 18;
                 $skip = ($request->page - 1) * $dataAmount;
 
-                $offers = Offer::with("user")->has("user")->where("status", "abierto")
+                $offers = Offer::with("user", "user.region", "user.commune", "category")->has("user")->has("user.region")->has("user.commune")->has("category")->where("status", "abierto")
                 ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
                 ->take($dataAmount)
                 ->orderBy("id", "desc")
                 ->get();
 
-                $offersCount = Offer::with("user")->has("user")
+                $offersCount = Offer::with("user", "user.region", "user.commune", "category")->has("user")->has("user.region")->has("user.commune")->has("category")
                 ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
                 ->orderBy("id", "desc")
                 ->count();
@@ -51,7 +51,7 @@ class SearchController extends Controller
             $dataAmount = 18;
             $skip = ($request->page - 1) * $dataAmount;
 
-            $offers = Offer::with("user")->has("user")
+            $offers = Offer::with("user", "user.region", "user.commune", "category")->has("category")->has("user")->has("user.region")->has("user.commune")
             ->where(function ($query) use($words) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
@@ -75,7 +75,7 @@ class SearchController extends Controller
             ->whereRaw($search)
             ->get();
 
-            $offersCount = Offer::with("user")->has("user")
+            $offersCount = Offer::with("user", "user.region", "user.commune", "cateogry")->has("category")->has("user")->has("user.region")->has("user.commune")
             ->where(function ($query) use($words) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){

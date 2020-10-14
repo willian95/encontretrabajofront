@@ -29,3 +29,10 @@ Route::post("/jobs", "JobController@getOffers");
 Route::get("/regions/all", "RegionController@fetch");
 
 Route::get("/job-categories/all", "JobCategoryController@fetch");
+
+Route::get("quienes-somos", function(){
+
+    $aboutUs = App\AboutUs::first();
+    return view("aboutUs", ["image" => $aboutUs->image, "text" => $aboutUs->text]);
+
+});

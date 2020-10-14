@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function commune(){
+        return $this->belongsTo(Commune::class);
+    }
+
+    public function region(){
+        return $this->belongsTo(Region::class);
+    }
+
 }
