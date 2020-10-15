@@ -151,9 +151,8 @@ a.item-menu_a.menu-btn-et_a {
 
   @media (max-width: 768px) {
     .modal-planes .col-md-3 {
-        -ms-flex: 0 0 33%;
-        flex: 0 0 33%;
-        max-width: 33%;
+        flex: 0 0 50%;
+        max-width: 50%;
     }
     .card-planes h2 {
         font-size: 18px;
@@ -257,6 +256,10 @@ a.item-menu_a.menu-btn-et_a {
     }
   }
   @media (max-width: 425px) {
+    .modal-planes .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
     a.btn-et {
         font-size: 20px!important;
     }
