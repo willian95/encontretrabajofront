@@ -477,7 +477,9 @@
                         </ul>
                     </div>
                     <div class="col-md-3 nosotros-container-row-col">
-                        <img class="nosotros-container-row-col_img" src="{{ asset('assets/img/botones-google-play-app-store.png') }}" alt="">
+                        <img class="nosotros-container-row-col_img" src="{{ asset('assets/img/Google-play-boton-color.png') }}" alt="">
+                        <img class="nosotros-container-row-col_img" src="{{ asset('assets/img/App-store-boton-color.png') }}" alt="">
+                        <img class="nosotros-container-row-col_img" src="{{ asset('assets/img/Logo-footer-color.png') }}" alt="">
                     </div>
                 </div>
           </div>
