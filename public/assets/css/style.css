@@ -330,6 +330,10 @@ a.item-menu_a.menu-btn-et_a {
   }
 
   @media (max-width: 320px){
+    .buscar-empleo-localizacion .nav-tabs {
+        display: flex;
+        justify-content: center;
+    }
     .modal-dialog.modal-planes {
         max-width: 100%;
       
@@ -368,7 +372,7 @@ a.item-menu_a.menu-btn-et_a {
     }
 
 section.buscar-empleo-localizacion li.nav-item {
-    width: 50%;
+    width: 30%;
     text-align: center;
 }
 .text-center.l-a.text-banner-g {
