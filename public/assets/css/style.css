@@ -45,11 +45,11 @@ a:hover {
     /* display: none; */
 }
 /*menu*/
-a.item-menu_a.menu-btn-et_a {
+/* a.item-menu_a.menu-btn-et_a {
     background: #26988a;
     padding: 8px;
     border-radius: 5px;
-}
+} */
 
 .top-nav {
     display: flex;
@@ -407,7 +407,7 @@ section.buscar-empleo-localizacion li.nav-item {
 }
 
 .carrusel-principal-inf-logo-img {
-    margin-top: 160px;
+    margin-top: 125px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -640,13 +640,13 @@ select:focus {
       color: #fff;
   }
   .text-center.l-a.text-banner-g {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     padding-top: 20px;
     text-shadow: 0.1px 0.1px 2px #564a4a;
 }
 .text-center.l-a.text-banner-m {
-    font-size: 30px;
+    font-size: 25px;
     text-shadow: 0.1px 0.1px 2px #564a4a;
 
 }
@@ -836,4 +836,19 @@ li.slick-active {
 }
 .card-planes h6 {
     padding-bottom: 15px;
+}
+
+
+
+li.item-menu_a.menu-btn-et_a_li {
+    background: #26988a;
+    border-radius: 5px;
+    padding: 5px;
+}
+.menu > li {
+    margin: 0 1rem;
+    line-height: 15px;
+}
+section.buscar-empleo-localizacion {
+    margin-bottom: 30px!important;
 }
