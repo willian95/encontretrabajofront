@@ -291,13 +291,18 @@
       <section class="opcion-en-web-et">
         <div class="container opcion-en-web-et-container">
             <div class="row">
+                @foreach(App\Notice::orderBy("id", "desc")->take(4)->get() as $notice)
                 <div class="col-md-3 opcion-en-web-et-container-col">
-                    <a href="">
-                        <div class="opcion-en-web-et-container-col"><div class="opcion-en-web-et-container-col-box"></div></div>
-                        <h6 class="opcion-en-web-et-container-col_h6">Registro gratuito</h6>
+                    <a href="{{ url('/noticia/'.$notice->slug) }}">
+                        <div class="opcion-en-web-et-container-col">
+                            <!--<div class="opcion-en-web-et-container-col-box"></div>-->
+                            <img src="{{ $notice->image }}" style="width: 100%;" alt="">
+                        </div>
+                        <h6 class="opcion-en-web-et-container-col_h6">{{ $notice->title }}</h6>
                     </a>
                 </div>
-                <div class="col-md-3 opcion-en-web-et-container-col">
+                @endforeach
+                {{--<div class="col-md-3 opcion-en-web-et-container-col">
                    <a href="">
                         <div class="opcion-en-web-et-container-col"><div class="opcion-en-web-et-container-col-box"></div></div>
                         <h6 class="opcion-en-web-et-container-col_h6">Nuevos empleos diariamente</h6>
@@ -314,7 +319,7 @@
                         <div class="opcion-en-web-et-container-col"><div class="opcion-en-web-et-container-col-box"></div></div>
                         <h6 class="opcion-en-web-et-container-col_h6">Completa tu perfil profesional</h6>
                     </a>
-                </div>
+                </div>--}}
             </div>
         </div>
       </section>

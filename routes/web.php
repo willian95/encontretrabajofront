@@ -36,3 +36,5 @@ Route::get("quienes-somos", function(){
     return view("aboutUs", ["image" => $aboutUs->image, "text" => $aboutUs->text]);
 
 });
+
+Route::get("noticia/{slug}", "NewsController@show");
