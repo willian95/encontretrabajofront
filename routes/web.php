@@ -33,7 +33,7 @@ Route::get("/job-categories/all", "JobCategoryController@fetch");
 Route::get("quienes-somos", function(){
 
     $aboutUs = App\AboutUs::first();
-    return view("aboutUs", ["image" => $aboutUs->image, "text" => $aboutUs->text]);
+    return view("aboutUs", ["image" => $aboutUs->image, "text" => $aboutUs->text, "text2" => $aboutUs->text2]);
 
 });
 
