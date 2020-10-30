@@ -19,6 +19,7 @@ class SearchController extends Controller
     function search(Request $request){
 
         try{
+
             $search = "";
             if($request->job_search == null && $request->region_id == null){
                 $search = "1=1";
@@ -41,61 +42,71 @@ class SearchController extends Controller
 
             }
 
-           
-
-            $words = explode(' ',strtolower($request->job_search)); // coloco cada palabra en un espacio del array
+            $words = explode(' ',strtolower($request->search)); // coloco cada palabra en un espacio del array
             $wordsToDelete = array('de');
 
             $words = array_values(array_diff($words,$wordsToDelete));
 
-            $dataAmount = 18;
-            $skip = ($request->page - 1) * $dataAmount;
-
-            $offers = Offer::with("user", "user.region", "user.commune", "category")->has("category")->has("user")->has("user.region")->has("user.commune")
-            ->where(function ($query) use($words) {
+            $offers = Offer::with("user")->has("user")
+            ->where(function ($query) use($words, $request) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
                         //$query->orWhere('description', "like", "%".$words[$i]."%");
                         $query->orWhere('title', "like", "%".$words[$i]."%");
                         $query->orWhere('job_position', "like", "%".$words[$i]."%");
                         $query->orWhere('description', "like", "%".$words[$i]."%");
+
+                        if(isset($request->region)){
+                            $query->orWhere("region_id", $request->region);
+                        }
+
+                        if(isset($request->business)){
+                            $query->orWhere("business_name", 'like', '%'.$request->business.'%');
+                        }
                         
                     }
                 }      
-            })
-            ->whereHas("user", function($query) use($request){
-
-                $query->where("region_id", $request->region_id);
-
             })
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
             ->take($dataAmount)
-            ->orderBy("id", "desc")
-            ->whereRaw($search)
-            ->get();
+            ->orderBy("id", "desc");
+            
+            if(isset($request->category)){
+                $offers->where("category_id", $request->category);
+            }
+        
+            $offers = $offers->get();
 
-            $offersCount = Offer::with("user", "user.region", "user.commune", "cateogry")->has("category")->has("user")->has("user.region")->has("user.commune")
-            ->where(function ($query) use($words) {
+            $offersCount = Offer::with("user")->has("user")
+            ->where(function ($query) use($words, $request) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
                         //$query->orWhere('description', "like", "%".$words[$i]."%");
                         $query->orWhere('title', "like", "%".$words[$i]."%");
                         $query->orWhere('job_position', "like", "%".$words[$i]."%");
                         $query->orWhere('description', "like", "%".$words[$i]."%");
+
+                        if(isset($request->region)){
+                            $query->orWhere("region_id", $request->region);
+                        }
+
+                        if(isset($request->business)){
+                            $query->orWhere("business_name", 'like', '%'.$request->business.'%');
+                        }
                         
                     }
                 }      
             })
-            ->whereHas("user", function($query) use($request){
-
-                $query->where("region_id", $request->region_id);
-
-            })
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
-            ->orderBy("id", "desc")
-            ->whereRaw($search)
-            ->count();
+            ->orderBy("id", "desc");
+            
+            if(isset($request->category)){
+                $offers->where("category_id", $request->category);
+            }
+        
+            $offersCount = $offersCount->count();
+
 
             return response()->json(["success" => true, "offers" => $offers, "offersCount" => $offersCount, "dataAmount" => $dataAmount]);
 
@@ -133,7 +144,6 @@ class SearchController extends Controller
             })
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
-            ->take($dataAmount)
             ->orderBy("id", "desc")
             ->count();
 

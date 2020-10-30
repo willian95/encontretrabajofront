@@ -57,15 +57,18 @@
                                     <div class="col-9">
                                         <h5 class="card-title">@{{ offer.job_position }}</h5>
                                         <small class="text-b">@{{ offer.user.region.name }}, @{{ offer.user.commune.name }}</small>
-                                        <p class="price-op">
-                                            $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} <span v-if="offer.max_wage != null">- $ @{{ parseInt(offer.max_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</span>
+                                        <p class="price-op" v-if="offer.wage_type == 1">
+                                            $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}
                                         </p>
-                                        <p>
+                                        <p class="price-op" v-else>
+                                            A convenir
+                                        </p>
+                                        {{--<p>
                                             @{{ offer.description.substring(0, 60) }}
                                             <span v-if="offer.description.length > 60">
                                                 ...
                                             </span>
-                                        </p>
+                                        </p>--}}
                                     </div>
                                     {{--<div class="col-12">
                                         <p class="text-right">
@@ -146,7 +149,7 @@
                                 </div>
                                 <div class="col-12">
                                     <p>
-                                        <strong>Descripción: </strong> @{{ description }}
+                                        <strong>Descripción: </strong> <div v-html="description"> </div>
                                     </p>
                                 </div>
                                 <div class="col-12">

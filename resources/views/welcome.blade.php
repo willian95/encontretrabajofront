@@ -379,7 +379,7 @@
                             
                     </div>
                 </div>
-                <div id="menu1" class="container tab-pane fade"><br>
+                {{--<div id="menu1" class="container tab-pane fade"><br>
                     <h3>Salarios</h3>
                    <div class="row">
                         @foreach(App\Offer::where("status", "abierto")->groupBy('min_wage', 'max_wage')->take(20)->get() as $salary)
@@ -389,7 +389,7 @@
 
                         @endforeach
                    </div>
-                </div>
+                </div>--}}
                 <div id="menu3" class="container tab-pane fade"><br>
                 <h3>Categorias</h3>
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
