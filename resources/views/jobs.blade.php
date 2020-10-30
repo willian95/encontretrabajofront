@@ -26,14 +26,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="category">Categoría</label>  
-                                <select class="form-control" id="category">
+                                <select class="form-control" id="category" v-model="category">
                                     <option value="">Seleccione</option>
                                     <option :value="jobCategory.id" v-for="jobCategory in categories">@{{ jobCategory.name }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="business">Empresa</label>  
-                                <input type="text" class="form-control" id="business">
+                                <input type="text" class="form-control" id="business" v-model="business">
                             </div>
 
                             <p class="text-center">
@@ -182,6 +182,8 @@
                     offers:[],
                     regions:[],
                     categories:[],  
+                    category:"",
+                    business:"",
                     page:1,
                     pages:0,
                     image:"",
@@ -239,7 +241,7 @@
                 },
                 async query(){
 
-                    let offersRes = await axios.post("{{ url('/search') }}", {job_search: this.search, region_id: this.regionSearch, page: this.page})
+                    let offersRes = await axios.post("{{ url('/search') }}", {job_search: this.search, region_id: this.regionSearch, , category: this.category, business: this.business, page: this.page})
                     if(offersRes.data.success == true){
 
                         this.offers = offersRes.data.offers
