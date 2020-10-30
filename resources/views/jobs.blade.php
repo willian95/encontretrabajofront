@@ -45,6 +45,18 @@
 
                 <div class="col-md-7">
 
+                    <div class="col-md-12" v-if="loading == true">
+                        <p class="text-center">
+                            Buscando resultados
+                        </p>
+                    </div>
+
+                    <div class="col-md-12" v-if="loading == false && offers.length == 0">
+                        <p class="text-center">
+                            No se encontraron resultados
+                        </p>
+                    </div>
+
                     <div class="col-12" v-for="offer in offers" style="margin-bottom: 1rem; padding-right: 2rem; padding-left: 2rem;">
                         <div class="card" data-toggle="modal" data-target="#jobModal" style="cursor: pointer;" @click="show(offer)">
                             <div class="card-body" style="padding: 0.6rem !important">
@@ -87,13 +99,13 @@
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item" v-if="page > 1">
-                                        <a class="page-link" href="#" aria-label="Previous" @click="fetch(page -1)">
+                                        <a class="page-link" href="#" aria-label="Previous" @click="query(page -1)">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <li v-for="index in pages" class="page-item" v-if="page == index && index >= page - 3 &&  index < page + 3"><a class="page-link" href="#" @click="fetch(index)">@{{ index }}</a></li>
+                                    <li v-for="index in pages" class="page-item" v-if="page == index && index >= page - 3 &&  index < page + 3"><a class="page-link" href="#" @click="query(index)">@{{ index }}</a></li>
                                     <li class="page-item" v-if="page < pages">
-                                        <a class="page-link" href="#" aria-label="Next" @click="fetch(page + 3)">
+                                        <a class="page-link" href="#" aria-label="Next" @click="query(page + 3)">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>    
                                     </li>
@@ -193,7 +205,8 @@
                     minWage:"",
                     maxWage:"",
                     jobPosition:"",
-                    slug:""
+                    slug:"",
+                    loading:false
 
                 }
             },
@@ -239,9 +252,11 @@
                     })
 
                 },
-                async query(){
-
+                async query(page = 1){
+                    this.page = page
+                    this.loading = true
                     let offersRes = await axios.post("{{ url('/search') }}", {search: this.jobSearch, region: this.regionSearch, category: this.category, business: this.business, page: this.page})
+                    this.loading = false
                     if(offersRes.data.success == true){
 
                         this.offers = offersRes.data.offers
