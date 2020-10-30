@@ -47,7 +47,7 @@ class SearchController extends Controller
 
             $words = array_values(array_diff($words,$wordsToDelete));
 
-            $offers = Offer::with("user")->has("user")
+            $offers = Offer::with("user")->with("user.region", "user.commune")->has("user")
             ->where(function ($query) use($words, $request) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
@@ -78,7 +78,7 @@ class SearchController extends Controller
         
             $offers = $offers->get();
 
-            $offersCount = Offer::with("user")->has("user")
+            $offersCount = Offer::with("user")->with("user.region", "user.commune")->has("user")
             ->where(function ($query) use($words, $request) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
