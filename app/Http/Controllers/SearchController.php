@@ -20,12 +20,12 @@ class SearchController extends Controller
 
         try{
 
+            $dataAmount = 18;
+            $skip = ($request->page - 1) * $dataAmount;
+
             $search = "";
             if($request->search == null && $request->region == null){
                 $search = "1=1";
-
-                $dataAmount = 18;
-                $skip = ($request->page - 1) * $dataAmount;
 
                 $offers = Offer::with("user", "user.region", "user.commune", "category")->has("user")->has("user.region")->has("user.commune")->has("category")->where("status", "abierto")
                 ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
