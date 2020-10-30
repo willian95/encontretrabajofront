@@ -21,7 +21,7 @@ class SearchController extends Controller
         try{
 
             $search = "";
-            if($request->job_search == null && $request->region_id == null){
+            if($request->search == null && $request->region == null){
                 $search = "1=1";
 
                 $dataAmount = 18;
