@@ -241,7 +241,7 @@
                 },
                 async query(){
 
-                    let offersRes = await axios.post("{{ url('/search') }}", {job_search: this.search, region_id: this.regionSearch, category: this.category, business: this.business, page: this.page})
+                    let offersRes = await axios.post("{{ url('/search') }}", {search: this.jobSearch, region: this.regionSearch, category: this.category, business: this.business, page: this.page})
                     if(offersRes.data.success == true){
 
                         this.offers = offersRes.data.offers
