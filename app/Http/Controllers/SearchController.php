@@ -30,11 +30,13 @@ class SearchController extends Controller
                 $offers = Offer::with("user", "user.region", "user.commune", "category")->has("user")->has("user.region")->has("user.commune")->has("category")->where("status", "abierto")
                 ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
                 ->take($dataAmount)
+                ->orderBy("is_highlighted", "desc")
                 ->orderBy("id", "desc")
                 ->get();
 
                 $offersCount = Offer::with("user", "user.region", "user.commune", "category")->has("user")->has("user.region")->has("user.commune")->has("category")
                 ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+                ->orderBy("is_highlighted", "desc")
                 ->orderBy("id", "desc")
                 ->count();
 
@@ -70,6 +72,7 @@ class SearchController extends Controller
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
             ->take($dataAmount)
+            ->orderBy("is_highlighted", "desc")
             ->orderBy("id", "desc");
             
             if(isset($request->category)){
