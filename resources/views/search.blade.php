@@ -26,6 +26,9 @@
                             <p class="text-center price-op" v-else>
                                 A convenir
                             </p>
+                            <p v-if="offer.is_highlighted == 1">
+                                <strong>Aviso destacado</strong>
+                            </p>
                             <p class="text-center">
                                 <img class="round-img" :src="offer.user.image" alt="Card image">
                             </p>

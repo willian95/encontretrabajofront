@@ -75,6 +75,9 @@
                                         <p class="price-op" v-else>
                                             A convenir
                                         </p>
+                                        <p v-if="offer.is_highlighted == 1">
+                                            <strong>Aviso destacado</strong>
+                                        </p>
                                         {{--<p>
                                             @{{ offer.description.substring(0, 60) }}
                                             <span v-if="offer.description.length > 60">
