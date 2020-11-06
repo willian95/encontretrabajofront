@@ -9,6 +9,7 @@
 
         #description ul{
             list-style: unset !important;
+            padding: unset;
         }
     </style>
 
