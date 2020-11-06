@@ -58,6 +58,8 @@
 
     </style>
 
+    @stack("css")
+
 </head>
     <div class="elipse">
         <img src="assets/img/encontre-trabajo-blanco.png" alt="">

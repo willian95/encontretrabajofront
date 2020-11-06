@@ -1,5 +1,19 @@
 @extends('layouts.main')
 
+@push("css")
+
+    <style>
+        #description p{
+            text-align: left !important;
+        }
+
+        #description ul{
+            list-style: unset !important;
+        }
+    </style>
+
+@endpush
+
 @section('content')
 
     @include('partials.navbar')
@@ -120,8 +134,8 @@
                 </div>
 
                 <div class="col-md-2">
-                    <img style="width: 100%;" class="publicidad" src="https://servertest.sytes.net/assets/img/Banner-Epson-Movil.jpg" alt="publicidad">
-                    <img style="width: 100%;" class="publicidad" src="https://servertest.sytes.net/assets/img/Banner-Epson-Movil.jpg" alt="publicidad">
+                    <img style="width: 100%;" class="publicidad" src="{{ asset('assets/img/Banner-Epson-Movil.jpg') }}" alt="publicidad">
+                    <img style="width: 100%;" class="publicidad" src="{{ asset('assets/img/Banner-Epson-Movil.jpg') }}" alt="publicidad">
                 </div>
                 
             </div>
