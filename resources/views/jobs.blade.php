@@ -178,8 +178,9 @@
                                 </div>
                                 <div class="col-12">
                                     <p>
-                                        <strong>Descripción: </strong> <div v-html="description" id="description"> </div>
+                                        <strong>Descripción: </strong> 
                                     </p>
+                                    <div v-html="description" id="description"> </div>
                                 </div>
                                 <div class="col-12">
                                     <p class="text-center">
