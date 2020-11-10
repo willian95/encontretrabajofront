@@ -443,14 +443,45 @@
 
       </section>  
       <section class="nosotros">
+
+        <!-- Modal -->
+        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Términos y condiciones</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non mollis dolor. Mauris nec nunc lacus. Suspendisse ultricies sollicitudin dui, nec ultrices tellus laoreet sed. Donec convallis vulputate odio, vel suscipit lorem molestie eleifend. Fusce eget quam ut nulla auctor sagittis. Proin purus tortor, ultrices vitae suscipit nec, viverra non est. Maecenas rhoncus magna tortor, non gravida mauris mollis sed. Quisque justo metus, aliquet eget nisi in, ornare euismod est. Maecenas ultricies elit nec tristique viverra.
+
+                        Aliquam ultrices velit vitae magna finibus congue quis ac tortor. Aliquam eget metus iaculis, ullamcorper urna vitae, convallis mi. Quisque porta, leo et feugiat eleifend, ante lectus fermentum erat, semper pulvinar sem ex a ipsum. Sed vitae metus ac arcu sodales tincidunt sed id lectus. Nam vitae hendrerit massa. Aenean mi ipsum, faucibus quis rutrum et, blandit et eros. Curabitur sem nulla, rhoncus ac ipsum varius, efficitur ultrices dolor.
+
+                        In quis nulla lorem. Cras pulvinar mattis sapien, sit amet scelerisque nunc hendrerit sed. Nunc malesuada ante tincidunt nulla tincidunt, ut ultrices orci euismod. Phasellus rhoncus quam ullamcorper magna varius, eget euismod nisl blandit. Nullam a accumsan ante. Nam vel fermentum ligula, quis rhoncus nibh. Sed et malesuada turpis. Ut nec arcu sit amet diam elementum feugiat.
+
+                        Aenean vitae tellus a orci aliquam luctus id sed diam. Suspendisse eu felis sodales, egestas leo et, iaculis mauris. Aenean venenatis scelerisque nibh. Phasellus rhoncus suscipit quam, nec viverra justo eleifend in. Ut quis diam libero. Morbi vel vulputate magna. Integer et est mi. Mauris venenatis accumsan blandit. Nunc a mollis nulla. Vivamus sit amet vulputate metus.
+
+                        Proin finibus lectus eget congue porttitor. Nullam viverra tincidunt arcu, et lacinia lacus sollicitudin vel. Etiam nec lacinia tellus. Vestibulum malesuada elementum varius. Cras mollis vehicula erat, a tristique leo pretium et. Ut id lobortis libero. Maecenas commodo hendrerit neque, at scelerisque purus vestibulum ac. Nunc sit amet commodo dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean nisl tortor, vehicula nec risus sed, convallis iaculis leo. Etiam semper, erat non cursus vestibulum, urna ex dignissim tortor, sit amet luctus leo ipsum at metus. Sed porttitor ultrices sodales. Pellentesque lectus est, lobortis nec condimentum id, venenatis ac nunc.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
           <div class="container nosotros-container">
               <div class="row col-flex">
                     <div class="col-md-3 nosotros-container-row-col">
                         <h6 class="nosotros-container-row-col_h6">Institucional</h6>
                         <ul>
-                            <li><a class="nosotros-container-row-col_a" href="">¿Quienés Somos?</a></li>
+                         
                             <li><a class="nosotros-container-row-col_a" href="">Contacto para personas</a> </li>
-                            <li><a class="nosotros-container-row-col_a" href="">Aviso Legal y Privacidad</a> </li>
+                            <li><a class="nosotros-container-row-col_a" data-toggle="modal" data-target="#termsModal">Aviso Legal y Privacidad</a> </li>
                         </ul>
                     </div>
                     <div class="col-md-3 nosotros-container-row-col">
