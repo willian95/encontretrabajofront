@@ -147,7 +147,7 @@
                                             <div class="box-waves-text fondo-az">
                                                 <ul class="text-center box-waves-text_ul ">
                                                     @if($plan->offer_posting == 1)
-                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li >Publicación en la plataforma laboral y en nuestras redes sociales.</li>
                                                     @endif
                                                     @if($plan->post_days > 0)
                                                     <li>Duración de {{ $plan->post_days }} días.</li>
@@ -170,7 +170,7 @@
                                                     <li>Podrás entrar al motor de búsqueda y descargar {{ $plan->download_profiles }} @if($plan->download_profiles == 1) perfil. @else perfiles. @endif</li>
                                                     @endif
                                                     @if($plan->conference_amount > 0)
-                                                    <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video conferencia. @else video conferencias. @endif</li>
+                                                    <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevistas con postulantes. @endif</li>
                                                     @endif
                                                 </ul>
                                             </div>
@@ -203,7 +203,7 @@
                                             <div class="box-waves-text fondo-ve">
                                                 <ul class="text-center box-waves-text_ul ">
                                                     @if($plan->offer_posting == 1)
-                                                    <li >Publicaciones de ofertas laborales en el portal.</li>
+                                                    <li >Publicación en la plataforma laboral y en nuestras redes sociales.</li>
                                                     @endif
                                                     @if($plan->post_days > 0)
                                                     <li>Duración de {{ $plan->post_days }} días.</li>
@@ -227,7 +227,7 @@
                                                     <li>Podrás entrar al motor de búsqueda y descargar {{ $plan->download_profiles }} @if($plan->download_profiles == 1) perfil. @else perfiles. @endif</li>
                                                     @endif
                                                     @if($plan->conference_amount > 0)
-                                                    <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video conferencia. @else video conferencias. @endif</li>
+                                                    <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevistas con postulantes. @endif</li>
                                                     @endif
                                                 </ul>
                                             </div>
