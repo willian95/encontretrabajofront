@@ -62,7 +62,7 @@
 
 </head>
     <div class="elipse">
-        <img src="assets/img/encontre-trabajo-blanco.png" alt="" style="width: 90px;">
+        <img src="assets/img/encontre-trabajo-blanco.png" alt="" style="width: 140px;">
     </div>
 
     <body>   
