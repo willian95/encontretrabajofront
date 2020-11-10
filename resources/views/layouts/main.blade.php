@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Encontré Trabajo</title>
-    <link rel="shortcut icon" href="assets/img/logo-color.png" />
+    <link rel="shortcut icon" href="assets/img/logop.png" />
 
 
 	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -62,7 +62,7 @@
 
 </head>
     <div class="elipse">
-        <img src="assets/img/encontre-trabajo-blanco.png" alt="">
+        <img src="assets/img/encontre-trabajo-blanco.png" alt="" style="width: 90px;">
     </div>
 
     <body>   
