@@ -1,6 +1,6 @@
 <section class="top-nav">
     <div>
-        <img src="{{ asset('assets/img/encontre-trabajo-blanco.png') }}" alt="">
+        <img src="{{ asset('assets/img/encontre-trabajo-blanco.png') }}" alt="" style="width: 180px; margin-top: -10px;">
     </div>
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
