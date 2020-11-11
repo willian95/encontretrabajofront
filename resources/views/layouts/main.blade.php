@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8" />
@@ -62,7 +62,7 @@
 
 </head>
     <div class="elipse">
-        <img src="assets/img/encontre-trabajo-blanco.png" alt="" style="width: 140px;">
+        <img src="assets/img/encontre-trabajo-blanco.png" alt="" style="width: 280px;">
     </div>
 
     <body>   

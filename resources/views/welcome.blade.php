@@ -113,8 +113,10 @@
                                                     @if($plan->download_profiles > 0)
                                                     <li>Podrás entrar al motor de búsqueda y descargar {{ $plan->download_profiles }} @if($plan->download_profiles == 1) perfil. @else perfiles. @endif</li>
                                                     @endif
-                                                    @if($plan->conference_amount > 0)
-                                                    <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevista con postulantes. @endif</li>
+                                                    @if($plan->conference_infinity == 1)
+                                                        <li>Entrevistas Ilimitadas por @if($plan->plan_time == "semestrales") 6 meses @elseif($plan->plan_time == "anuales") 12 meses @endif</li>
+                                                    @elseif($plan->conference_amount > 0)
+                                                        <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevista con postulantes. @endif</li>
                                                     @endif
                                                 </ul>
                                             </div>
@@ -169,8 +171,10 @@
                                                     @if($plan->download_profiles > 0)
                                                     <li>Podrás entrar al motor de búsqueda y descargar {{ $plan->download_profiles }} @if($plan->download_profiles == 1) perfil. @else perfiles. @endif</li>
                                                     @endif
-                                                    @if($plan->conference_amount > 0)
-                                                    <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevistas con postulantes. @endif</li>
+                                                    @if($plan->conference_infinity == 1)
+                                                        <li>Entrevistas Ilimitadas por @if($plan->plan_time == "semestrales") 6 meses @elseif($plan->plan_time == "anuales") 12 meses @endif</li>
+                                                    @elseif($plan->conference_amount > 0)
+                                                        <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevista con postulantes. @endif</li>
                                                     @endif
                                                 </ul>
                                             </div>
@@ -226,8 +230,10 @@
                                                     @if($plan->download_profiles > 0)
                                                     <li>Podrás entrar al motor de búsqueda y descargar {{ $plan->download_profiles }} @if($plan->download_profiles == 1) perfil. @else perfiles. @endif</li>
                                                     @endif
-                                                    @if($plan->conference_amount > 0)
-                                                    <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevistas con postulantes. @endif</li>
+                                                    @if($plan->conference_infinity == 1)
+                                                        <li>Entrevistas Ilimitadas por @if($plan->plan_time == "semestrales") 6 meses @elseif($plan->plan_time == "anuales") 12 meses @endif</li>
+                                                    @elseif($plan->conference_amount > 0)
+                                                        <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevista con postulantes. @endif</li>
                                                     @endif
                                                 </ul>
                                             </div>
@@ -334,9 +340,6 @@
                 <li class="nav-item">
                 <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu2">Categorias</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link link-tab-opcion-en-web" data-toggle="tab" href="#menu1">Salarios</a>
-                </li>
                 
             </ul>
 
@@ -344,52 +347,71 @@
             <div class="tab-content">
                 <div id="home" class="container tab-pane active"><br>
                     <h3>Localización</h3>
-                    <div class="row categorias-row">
+                    {{-- <a href="#" onclick="jobsInCommunes('{{ $commune->id }}')">{{ $commune->name }}</a> --}}
+                    <div class="row categorias-row" id="communes-dev">
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(1)" data-toggle="modal" data-target="#communesModal">Arica Parinacota</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(2)" data-toggle="modal" data-target="#communesModal">Tarapacá</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(9)" data-toggle="modal" data-target="#communesModal">Maule</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(13)" data-toggle="modal" data-target="#communesModal">Los Ríos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(3)" data-toggle="modal" data-target="#communesModal">Antofagasta</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(4)" data-toggle="modal" data-target="#communesModal">Atacama</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(10)" data-toggle="modal" data-target="#communesModal">Ñuble</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(14)" data-toggle="modal" data-target="#communesModal">Los Lagos</a></li>
 
-                        <div class="col-12">
-                            <div class="accordion" id="accordionExample">
-                                @foreach(App\Region::all() as $region)
-                                <div class="card">
-                                    <div class="card-header" id="heading{{$loop->index + 1}}">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index + 1}}" aria-expanded="true" aria-controls="collapse{{$loop->index + 1}}">
-                                        <h4>{{ $region->name }}</h4>
+                            </ul>
+                        </div>                        
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(5)" data-toggle="modal" data-target="#communesModal">Coquimbo</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(6)" data-toggle="modal" data-target="#communesModal">Valparaiso</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(11)" data-toggle="modal" data-target="#communesModal">Biobío</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(15)" data-toggle="modal" data-target="#communesModal">Aisén del General Carlos Ibáñez del Campo</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(7)" data-toggle="modal" data-target="#communesModal">Metropolitana de Santiago</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(8)" data-toggle="modal" data-target="#communesModal">Libertador General Bernardo O'Higgins</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(12)" data-toggle="modal" data-target="#communesModal">La Araucania</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" @click="fetchCommunes(16)" data-toggle="modal" data-target="#communesModal">Magallanes y de la Antártica Chilena</a></li>
+                                
+
+                            </ul>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="communesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog ">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Comunas</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
                                         </button>
-                                    </h2>
                                     </div>
+                                    <div class="modal-body">
+                                        
+                                        <button type="button" class="btn btn-outline-primary btn-lg btn-block" v-for="commune in communes" @click="jobsInCommunes(commune.id)">@{{ commune.name }}</button>
 
-                                    <div id="collapse{{$loop->index + 1}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    @foreach(App\Commune::where("region_id", $region->id)->get() as $commune)
-                                                        <div class="col-md-3">
-                                                            <a href="#" onclick="jobsInCommunes('{{ $commune->id }}')">{{ $commune->name }}</a>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
-                                @endforeach
-
                             </div>
                         </div>
+                        
                             
                     </div>
                 </div>
-                {{--<div id="menu1" class="container tab-pane fade"><br>
-                    <h3>Salarios</h3>
-                   <div class="row">
-                        @foreach(App\Offer::where("status", "abierto")->groupBy('min_wage', 'max_wage')->take(20)->get() as $salary)
-                            <div class="col-md-3">
-                                ${{ number_format($salary->min_wage, 0, ",", ".") }} @if($salary->max_wage)- ${{ number_format($salary->max_wage, 0, ",", ".") }}@endif
-                            </div>
-
-                        @endforeach
-                   </div>
-                </div>--}}
+               
                 <div id="menu3" class="container tab-pane fade"><br>
                 <h3>Categorias</h3>
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
@@ -398,46 +420,90 @@
                     <div class="row categorias-row">
                         <div class="col-md-3 categorias-row-col-3">
                             <ul>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Ventas</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Almacen / Logistica / Transporte</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">CallCenter / Telemercado</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Recursos Humanos</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Diseño / Artes gráficas</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Legal / Asesoría</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(1)">Administración</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(2)">Almacenamiento</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(2)">Atención de Clientes</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(4)">Arte / Diseño</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(5)">Call-Center</a></li>
+                                
                             </ul>
                         </div>
                         <div class="col-md-3 categorias-row-col-3">
                             <ul>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Informática / Telecomunicaciones</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Hosteleria / Turismo</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Contabilidad / Finanzas</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Mantenimiento y Reparación</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Mercadotécnica / Publicidad / Co...</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Dirección / Gerencia</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(7)">Compras / Comercio Exterior</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(8)">Comunicaciones</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(9)">Contabilidad</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(10)">Construcción</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(11)">Directores</a></li>
+                                
                             </ul>
                         </div>                        
                         <div class="col-md-3 categorias-row-col-3">
                             <ul>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Administración / Oficina</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Servicios Generales, Aseo y Se...</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Construccion y obra</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Docencia</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Compras / Comercio Exterior</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(13)">Enferemería</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(14)">Gerentes</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(15)">Hotelería</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(16)">Informática</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(17)">Ingeniería</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 categorias-row-col-3">
                             <ul>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Producción / Operarios</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Atención a clientes</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Medicina / Salud</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Ingeniería</a></li>
-                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="">Investigación y Calidad</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(18)">Investigación</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(19)">Logística</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(20)">Manufactura</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(21)">Mantenimiento</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(22)">Marketing</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(23)">Medicina</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(24)">Mercadotecnia</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(25)">Minería</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(26)">Obras</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(27)">Operarios / Operadores</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(28)">Producción</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(29)">Publicidad</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(30)">Recursos Humanos</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(31)">Reparaciones</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(32)">Técnicos</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(33)">Tele-comunicaciones</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(34)">Tele-mercadeo</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(35)">Transporte</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(36)">Turismo</a></li>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(37)">Ventas</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3 categorias-row-col-3">
+                            <ul>
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" onclick="categorySearch(38)">Servicios Generales, Aseo y Seguridad</a></li>
+
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="" onclick="categorySearch(39)">Otros</a></li>       
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(6)">Calidad</a></li>                         
+                                <li class="categorias-row-col-3_li"><a class="categorias-row-col-3_a" href="#" onclick="categorySearch(12)">Docentes / Educadores</a></li>
 
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         
 
@@ -520,6 +586,61 @@
 
 @push("scripts")
 
+    <script>
+        const devArea = new Vue({
+            el: '#communes-dev',
+            data() {
+                return {
+                    
+                    communes:[]
+
+                }
+            },
+            methods: {
+
+                
+                fetchCommunes(region){
+                    this.communes = []
+                    axios.get("{{ url('/communes/') }}"+"/"+region).then(res => {
+
+                        this.communes = res.data.communes
+
+                    })
+
+                },
+                fetchCategories(){
+
+                    axios.get("{{ url('/job-categories/all') }}").then(res => {
+
+                        this.categories = res.data.categories
+
+                    })
+
+                },
+                jobsInCommunes(commune){
+            
+                    //alert(commune)
+                    localStorage.setItem("encontre_trabajo_commune_search", commune)
+                    window.location.href="{{ url('/search') }}"
+                
+                }
+
+            },
+            created(){
+                
+                //this.jobs()
+                this.fetchRegions()
+                this.fetchCategories()
+
+                this.jobSearch = localStorage.getItem("encontre_trabajo_job_search")
+                this.regionSearch = localStorage.getItem("encontre_trabajo_region_search")
+                this.query()
+                
+            }
+
+        })
+    </script>
+
     <script>    
         function storeQuery(){
             
@@ -534,13 +655,12 @@
             
         }
 
-        function jobsInCommunes(commune){
+        function categorySearch(id){
             
-            //alert(commune)
-            localStorage.setItem("encontre_trabajo_commune_search", commune)
+            localStorage.setItem("encontre_trabajo_category_search", id)
             window.location.href="{{ url('/search') }}"
-        
         }
+
 
         $(document).ready(function(){
 

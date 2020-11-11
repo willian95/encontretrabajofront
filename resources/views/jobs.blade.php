@@ -158,8 +158,11 @@
                                     </p>
                                 </div>
                                 <div class="col-12">
-                                    <p>
-                                    $ @{{ parseInt(minWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} <span v-if="maxWage > 0">- $ @{{ parseInt(maxWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</span>
+                                    <p class="price-op" v-if="wageType == 1">
+                                        $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}
+                                    </p>
+                                    <p class="price-op" v-else>
+                                        A convenir
                                     </p>
                                 </div>
                                 <div class="col-12">
@@ -219,37 +222,29 @@
                     pages:0,
                     image:"",
                     title:"",
+                    slug:"",
+                    wageType:"0",
                     description:"",
                     category:"",
                     minWage:"",
                     maxWage:"",
                     jobPosition:"",
                     slug:"",
+                    categorySearch:"",
                     loading:false
 
                 }
             },
             methods: {
 
-                /*async jobs(){
-
-                    let offersRes = await axios.post("{{ url('/jobs') }}", {page: this.page})
-                    if(offersRes.data.success == true){
-
-                        this.offers = offersRes.data.offers
-                        this.pages = Math.ceil(offersRes.data.offersCount / offersRes.data.dataAmount)
-                        
-                    }
-
-                },*/
                 show(offer){
-                    console.log("offer", offer)
+              
                     this.image = offer.user.image
                     this.title = offer.title
                     this.category = offer.category.name
                     this.description = offer.description
                     this.minWage = offer.min_wage
-                    this.maxWage = offer.max_wage
+                    this.wageType = offer.wage_type
                     this.jobPosition = offer.job_position
                     this.slug = offer.slug
                 },
@@ -294,6 +289,7 @@
 
                 this.jobSearch = localStorage.getItem("encontre_trabajo_job_search")
                 this.regionSearch = localStorage.getItem("encontre_trabajo_region_search")
+                this.categorySearch = localStorage.getItem("encontre_trabajo_category_search")
                 this.query()
                 
             }

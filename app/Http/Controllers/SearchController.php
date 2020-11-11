@@ -127,7 +127,7 @@ class SearchController extends Controller
             $dataAmount = 18;
             $skip = ($request->page - 1) * $dataAmount;
 
-            $offers = Offer::with("user")->has("user")
+            $offers = Offer::with("user", "user.commune", "user.region", "category")->has("user")
             ->whereHas("user", function($query) use($request){
 
                 $query->where("commune_id", $request->communeSearch);
@@ -139,7 +139,7 @@ class SearchController extends Controller
             ->orderBy("id", "desc")
             ->get();
 
-            $offersCount = Offer::with("user")->has("user")
+            $offersCount = Offer::with("user", "user.commune", "user.region", "category")->has("user")
             ->whereHas("user", function($query) use($request){
 
                 $query->where("commune_id", $request->communeSearch);
@@ -147,6 +147,39 @@ class SearchController extends Controller
             })
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+            ->orderBy("id", "desc")
+            ->count();
+
+            return response()->json(["success" => true, "offers" => $offers, "offersCount" => $offersCount, "dataAmount" => $dataAmount]);
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine(), "msg" => "Hubo un problema"]);
+        }
+
+    }
+
+    function categorySearch(Request $request){
+
+        try{
+
+            $dataAmount = 18;
+            $skip = ($request->page - 1) * $dataAmount;
+
+            $offers = Offer::with("user", "user.commune", "user.region", "category")->has("user")
+            ->where("status", "abierto")
+            ->where("category_id", $request->categorySearch)
+            ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+            ->take($dataAmount)
+            ->orderBy("is_highlighted", "desc")
+            ->orderBy("id", "desc")
+            ->get();
+
+            $offersCount = Offer::with("user", "user.commune", "user.region", "category")->has("user")
+            ->where("category_id", $request->categorySearch)
+            ->where("status", "abierto")
+            ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+            ->orderBy("is_highlighted", "desc")
             ->orderBy("id", "desc")
             ->count();
 

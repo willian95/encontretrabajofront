@@ -22,11 +22,14 @@ Route::get("/jobs", "SearchController@jobs");
 Route::post("/search", "SearchController@search");
 
 Route::post("/search/commune", "SearchController@communeSearch");
+Route::post("/search/category", "SearchController@categorySearch");
 
 Route::get("/jobs", "JobController@index");
 Route::post("/jobs", "JobController@getOffers");
 
 Route::get("/regions/all", "RegionController@fetch");
+
+Route::get("/communes/{id}", "RegionController@fetchCommune");
 
 Route::get("/job-categories/all", "JobCategoryController@fetch");
 
