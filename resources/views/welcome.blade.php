@@ -1155,8 +1155,8 @@ Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de co
                             <li><a style="cursor: pointer" class="nosotros-container-row-col_a" data-toggle="modal" data-target="#termsModal">Aviso Legal y Privacidad</a> </li>
                         </ul>
                     </div>
-                    {{--<div class="col-md-3 nosotros-container-row-col">
-                        <h6 class="nosotros-container-row-col_h6">Candidatos</h6>
+                    <div class="col-md-3 nosotros-container-row-col">
+                        {{--<h6 class="nosotros-container-row-col_h6">Candidatos</h6>
                         <ul>
                                 <li><a class="nosotros-container-row-col_a" href="">Preguntas frecuentes de candidatos</a></li>
                                 <li><a class="nosotros-container-row-col_a" href="">Empleos por Categoria</a></li>
@@ -1167,17 +1167,17 @@ Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de co
                                 <li><a class="nosotros-container-row-col_a" href="">Empresas por localización</a></li>
                                 <li><a class="nosotros-container-row-col_a" href="">Empresas por industria</a></li>
                                 <li><a class="nosotros-container-row-col_a" href="">Pruebas de aptitudes</a></li>
-                        </ul>
+                        </ul>--}}
 
                     </div>
                     <div class="col-md-3 nosotros-container-row-col">
-                        <h6 class="nosotros-container-row-col_h6">Reclutadores</h6>
+                        {{--<h6 class="nosotros-container-row-col_h6">Reclutadores</h6>
                         <ul>
                             <li><a class="nosotros-container-row-col_a" href="">Preguntas frecuentes de empresas</a></li>
                             <li><a class="nosotros-container-row-col_a" href="">Contacto para empresas</a></li>
                             <li><a class="nosotros-container-row-col_a" href="">Buscar candidatos </a></li>
-                        </ul>
-                    </div>--}}
+                        </ul>--}}
+                    </div>
                     <div class="col-md-3 nosotros-container-row-col">
                         <img class="nosotros-container-row-col_img" src="{{ asset('assets/img/Google-play-boton-color.png') }}" alt="">
                         <img style="margin-top: 15px;" class="nosotros-container-row-col_img" src="{{ asset('assets/img/App-store-boton-color.png') }}" alt="">
