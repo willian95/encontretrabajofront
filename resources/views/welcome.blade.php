@@ -1,5 +1,17 @@
 @extends('layouts.main')
 
+@push("css")
+
+    <style>
+            .footer-social-nt i{
+                font-size: 25px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+    </style>
+
+@endpush
+
 @section('content')
 
     @include('partials.navbar')         
@@ -118,8 +130,14 @@
                                                     @elseif($plan->conference_amount > 0)
                                                         <li>{{ $plan->conference_amount }} @if($plan->conference_amount == 1)video entrevista con postulantes. @else video entrevista con postulantes. @endif</li>
                                                     @endif
+
+                                                    
+
                                                 </ul>
                                             </div>
+                                            <p class="text-center">
+                                                <button class="btn btn-primary" onclick="setPlan({{ $plan->id }})">Comprar</button>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -667,7 +685,7 @@
 
                         <p class="text-justify">
                         b) La base jurídica para el tratamiento de los Datos Personales confiados por nuestros Clientes es la celebración del presente contrato de adhesión entre ese Cliente y ENCONTRE-TRABAJO. 
-Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de contratos con plena libertad a virtud del principio jurídico denominado Autonomía de la Voluntad, el cual descansa y se funda en la Autodeterminación individual, de una persona natural o jurídica, radicándose por tanto en el libre consentimiento del usuario, sea cual fuere su forma de vinculación e interacción con ENCONTRE-TRABAJO.
+            Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de contratos con plena libertad a virtud del principio jurídico denominado Autonomía de la Voluntad, el cual descansa y se funda en la Autodeterminación individual, de una persona natural o jurídica, radicándose por tanto en el libre consentimiento del usuario, sea cual fuere su forma de vinculación e interacción con ENCONTRE-TRABAJO.
 
                         </p>
 
@@ -1147,7 +1165,7 @@ Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de co
 
           <div class="container nosotros-container">
               <div class="row col-flex">
-                    <div class="col-md-3 nosotros-container-row-col">
+                    <div class="col-md-4 nosotros-container-row-col">
                         <h6 class="nosotros-container-row-col_h6">Institucional</h6>
                         <ul>
                          
@@ -1155,7 +1173,20 @@ Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de co
                             <li><a style="cursor: pointer" class="nosotros-container-row-col_a" data-toggle="modal" data-target="#termsModal">Aviso Legal y Privacidad</a> </li>
                         </ul>
                     </div>
-                    <div class="col-md-3 nosotros-container-row-col">
+                    <div class="col-md-4 nosotros-container-row-col footer-social-nt">
+                        <p class="text-center">
+                            <a href="https://www.instagram.com/encontretrabajo/?hl=es-la" target="_blank" style="color:#000;">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/encontretrabajo" target="_blank" style="color:#000;">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/con-pega-feliz" target="_blank" style="color:#000;">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                               
+                                
+                        </p>
                         {{--<h6 class="nosotros-container-row-col_h6">Candidatos</h6>
                         <ul>
                                 <li><a class="nosotros-container-row-col_a" href="">Preguntas frecuentes de candidatos</a></li>
@@ -1170,15 +1201,15 @@ Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de co
                         </ul>--}}
 
                     </div>
-                    <div class="col-md-3 nosotros-container-row-col">
-                        {{--<h6 class="nosotros-container-row-col_h6">Reclutadores</h6>
+                    {{--<div class="col-md-3 nosotros-container-row-col">
+                        <h6 class="nosotros-container-row-col_h6">Reclutadores</h6>
                         <ul>
                             <li><a class="nosotros-container-row-col_a" href="">Preguntas frecuentes de empresas</a></li>
                             <li><a class="nosotros-container-row-col_a" href="">Contacto para empresas</a></li>
                             <li><a class="nosotros-container-row-col_a" href="">Buscar candidatos </a></li>
-                        </ul>--}}
-                    </div>
-                    <div class="col-md-3 nosotros-container-row-col">
+                        </ul>
+                    </div>--}}
+                    <div class="col-md-4 nosotros-container-row-col text-right">
                         <img class="nosotros-container-row-col_img" src="{{ asset('assets/img/Google-play-boton-color.png') }}" alt="">
                         <img style="margin-top: 15px;" class="nosotros-container-row-col_img" src="{{ asset('assets/img/App-store-boton-color.png') }}" alt="">
                         <img style="margin-top: 15px;" class="nosotros-container-row-col_img" src="{{ asset('assets/img/Logo-footer-color.png') }}" alt="">
@@ -1247,6 +1278,15 @@ Con arreglo al Derecho nacional de Chile es posible el celebrar esta clase de co
     </script>
 
     <script>    
+
+        function setPlan(id){
+
+            //localStorage.setItem("et_selected_plan", id)
+            document.cookie = "et_plan="+id
+            window.location.href="{{ env('PLATFORM_URL') }}"
+
+        }
+
         function storeQuery(){
             
             let jobSearch = $("#job_search").val()

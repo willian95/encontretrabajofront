@@ -12,7 +12,7 @@
 	<link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
 	<link href="{{ asset('assets/css/slick-theme.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
 
     <style>
@@ -78,6 +78,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
         <script>
+            alertify.set('notifier', 'position', 'top-right');
             $(document).ready(function () {
                 setTimeout(function () {
                     $('.elipse').fadeOut(300);

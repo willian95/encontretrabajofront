@@ -763,7 +763,7 @@ ul.box-waves-text_ul li:before {
     /* min-width: 250px; */
 
     /* min-height: 0px; */
-    height: 320px;
+    height: 350px;
     /* position: relative; */
 }
 .box-waves_img img {
@@ -780,6 +780,7 @@ ul.box-waves-text_ul li:before {
     /* background: #00649a; */
     width: 100%;
     padding: 5px;
+    height: 280px;
     /* height: -webkit-fill-available; */
     /* margin: 0; */
 }
