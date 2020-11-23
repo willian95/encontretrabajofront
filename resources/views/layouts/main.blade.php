@@ -78,7 +78,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
         <script>
-            alertify.set('notifier', 'position', 'top-right');
+            
             $(document).ready(function () {
                 setTimeout(function () {
                     $('.elipse').fadeOut(300);
