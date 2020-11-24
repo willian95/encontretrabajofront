@@ -196,6 +196,10 @@
                                                     @endif
                                                 </ul>
                                             </div>
+
+                                            <p class="text-center">
+                                                <button class="btn btn-primary" onclick="setPlan({{ $plan->id }})">Comprar</button>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -255,6 +259,10 @@
                                                     @endif
                                                 </ul>
                                             </div>
+
+                                            <p class="text-center">
+                                                <button class="btn btn-primary" onclick="setPlan({{ $plan->id }})">Comprar</button>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
