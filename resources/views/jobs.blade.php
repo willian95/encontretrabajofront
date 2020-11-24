@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="col-12">
                                     <p class="price-op" v-if="wageType == 1">
-                                        $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}
+                                        $ @{{ parseInt(minWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}
                                     </p>
                                     <p class="price-op" v-else>
                                         A convenir
