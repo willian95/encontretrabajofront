@@ -1290,7 +1290,7 @@
         function setPlan(id){
 
             //localStorage.setItem("et_selected_plan", id)
-            document.cookie = "et_plan="+id+";domain=app.encontretrabajo.cl"
+            document.cookie = "et_plan="+id+";domain=encontretrabajo.cl"
             window.location.href="{{ env('PLATFORM_URL') }}"
 
         }
