@@ -85,7 +85,7 @@
                                         <h5 class="card-title">@{{ offer.job_position }}</h5>
                                         <small class="text-b">@{{ offer.user.region.name }}, @{{ offer.user.commune.name }}</small>
                                         <p class="price-op" v-if="offer.wage_type == 1">
-                                            $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}
+                                            $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} @{{ offer.extra_wage }}
                                         </p>
                                         <p class="price-op" v-else>
                                             A convenir
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="col-12">
                                     <p class="price-op" v-if="wageType == 1">
-                                        $ @{{ parseInt(minWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}
+                                        $ @{{ parseInt(minWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} @{{ extraWage }}
                                     </p>
                                     <p class="price-op" v-else>
                                         A convenir
@@ -227,6 +227,7 @@
                     description:"",
                     category:"",
                     minWage:"",
+                    extraWage:"",
                     maxWage:"",
                     jobPosition:"",
                     slug:"",
@@ -246,6 +247,7 @@
                     this.minWage = offer.min_wage
                     this.wageType = offer.wage_type
                     this.jobPosition = offer.job_position
+                    this.extraWage = offer.extra_wage
                     this.slug = offer.slug
                 },
                 fetchRegions(){
