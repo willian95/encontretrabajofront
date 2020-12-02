@@ -54,7 +54,8 @@
                                     </p>
                                 </div>
                                 <div class="col-9">
-                                    <h5 class="card-title">@{{ offer.job_position }}</h5>
+                                    <h5 class="card-title">@{{ offer.title }}</h5>
+                                    <small class="text-b">@{{ offer.job_position }}</small><br>
                                     <small class="text-b">@{{ offer.user.region.name }}, @{{ offer.user.commune.name }}</small>
                                     <p class="price-op" v-if="offer.wage_type == 1">
                                         $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} @{{ offer.extra_wage }}
@@ -65,18 +66,9 @@
                                     <p v-if="offer.is_highlighted == 1">
                                         <strong>Aviso destacado</strong>
                                     </p>
-                                    {{--<p>
-                                        @{{ offer.description.substring(0, 60) }}
-                                        <span v-if="offer.description.length > 60">
-                                            ...
-                                        </span>
-                                    </p>--}}
+  
+                                    <small style="float:right">@{{ dateFormatter(offer.created_at) }}</small>
                                 </div>
-                                {{--<div class="col-12">
-                                    <p class="text-right">
-                                        <a :href="'{{ env('PLATFORM_URL') }}'+'/offers/detail/'+offer.slug" class="btn btn-primary">Ver más</a>
-                                    </p>
-                                </div>--}}
                             
                             </div>
 
@@ -231,6 +223,17 @@
                     this.slug = offer.slug
                     this.wageType = offer.wage_type
                     this.extraWage = offer.extra_wage
+                },
+                dateFormatter(date){
+                    
+                    let year = date.substring(0, 4)
+                    let month = date.substring(5, 7)
+                    let day = date.substring(8, 10)
+
+                    let hour = date.substring(11, 13)
+                    let minute = date.substring(14, 16)
+
+                    return day+"-"+month+"-"+year+" "+hour+":"+minute
                 }
 
             },
