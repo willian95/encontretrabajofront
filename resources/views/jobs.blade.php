@@ -84,7 +84,7 @@
                                     <div class="col-9">
                                         <h5 class="card-title" style="text-transform: capitalize;">@{{ offer.title.toLowerCase() }}</h5>
                                         <small class="text-b" style="text-transform: capitalize;">@{{ offer.job_position.toLowerCase() }}</small><br>
-                                        <small class="text-b">@{{ offer.region.name }}, @{{ offer.commune.name }}</small>
+                                        <small class="text-b">@{{ offer.region.name }}, @{{ offer.commune.name }}<span v-if="offer.address">, @{{ offer.address }}</span></small>
                                         
                                         <p class="price-op" v-if="offer.wage_type == 1">
                                             $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} @{{ offer.extra_wage }}

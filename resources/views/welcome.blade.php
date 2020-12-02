@@ -1194,13 +1194,13 @@
                     <div class="col-md-4 nosotros-container-row-col footer-social-nt">
                         <p class="text-center">
                             <a href="https://www.instagram.com/encontretrabajo/?hl=es-la" target="_blank" style="color:#000;">
-                                <i class="fa fa-instagram"></i>
+                                <i class="fa fa-instagram" style="font-size: 32px;"></i>
                             </a>
                             <a href="https://www.facebook.com/encontretrabajo" target="_blank" style="color:#000;">
-                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook" style="font-size: 32px;"></i>
                             </a>
                             <a href="https://www.linkedin.com/in/con-pega-feliz" target="_blank" style="color:#000;">
-                                <i class="fa fa-linkedin"></i>
+                                <i class="fa fa-linkedin" style="font-size: 32px;"></i>
                             </a>
                                
                                 
