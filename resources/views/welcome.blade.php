@@ -41,7 +41,7 @@
     
                 <div style="width: 100%; height: 100%; top: 0; position: absolute; background-color: rgba(0, 0, 0, 0.2)">
                     <div class="carrusel-principal-inf-logo">
-                        <div class="carrusel-principal-inf-logo-img"><img class="carrusel-principal-inf-logo-img_img" src="{{ asset('assets/img/logop.png') }}" alt=""></div>
+                        <div class="carrusel-principal-inf-logo-img" ><img class="carrusel-principal-inf-logo-img_img" style="height: 300px; margin-top: -100px;" src="{{ asset('assets/img/logop.png') }}" alt=""></div>
                     </div>
                     
                     <div class="buscador">
@@ -89,7 +89,7 @@
                                 <div class=" card-planes mb-3 mt-3">
                                     <div class="card">
                                         <div class="img-planes d-flex justify-content-center">
-                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                            <img src="{{ asset('assets/img/logop.png') }}" style="width: 270px;margin-top: -38px;margin-bottom: -42px;" alt="logo encontre trabajo">
                                         </div>
                                         <h2 class="text-center text-uppercase">{{ $plan->title }}</h2>
                                         <h3 class="text-center"><small class="">$</small>{{ number_format($plan->price, 0, ",", ".") }}</h3>
@@ -153,7 +153,7 @@
                                 <div class=" card-planes mb-3 mt-3">
                                     <div class="card">
                                         <div class="img-planes d-flex justify-content-center">
-                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo" style="width: 270px;margin-top: -38px;margin-bottom: -42px;">
                                         </div>
                                         <h2 class="text-center text-uppercase">{{ $plan->title }}</h2>
                                         <h3 class="text-center"><small class="">$</small>{{ number_format($plan->price, 0, ",", ".") }}</h3>
@@ -215,7 +215,7 @@
                                 <div class=" card-planes mb-3 mt-3">
                                     <div class="card">
                                         <div class="img-planes d-flex justify-content-center">
-                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo">
+                                            <img src="{{ asset('assets/img/logop.png') }}" alt="logo encontre trabajo" style="width: 270px;margin-top: -38px;margin-bottom: -42px;">
                                         </div>
                                         <h2 class="text-center text-uppercase">{{ $plan->title }}</h2>
                                         <h3 class="text-center"><small class="">$</small>{{ number_format($plan->price, 0, ",", ".") }}</h3>
@@ -290,7 +290,7 @@
                         <div class="col-md-2 ofertas-opciones-item">
                             <a href="#"> 
                                 <p class="text-center">
-                                    <img style="width: 100%;" src="{{ $landing->image }}">
+                                    <img style="height: 70px;" src="{{ $landing->image }}">
                                 </p>
                             </a>
                         </div>
