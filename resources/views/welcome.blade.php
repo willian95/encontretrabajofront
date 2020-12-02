@@ -324,6 +324,8 @@
         </section> 
       <section class="opcion-en-web-et">
         <div class="container opcion-en-web-et-container">
+            <h3  class=" text-center text-azul"><u>Plataforma Informativa</u></h3>
+            <h5  class=" text-center text-azul" style="margin-top: -10px; color: #1675a9; margin-top: -40px; margin-bottom: 40px;">Noticias y Videos</h5>
             <div class="row">
                 @foreach(App\Notice::orderBy("id", "desc")->take(4)->get() as $notice)
                 <div class="col-md-3 opcion-en-web-et-container-col">
@@ -361,6 +363,8 @@
         <div class="container">
             <!--<h5 class="buscar-empleo-localizacion_h5"> Buscar empleos por localización</h5>-->
             <!-- Nav tabs -->
+            <h3  class=" text-center text-azul"><u>Búsqueda de empleo</u></h3>
+            <h5  class=" text-center text-azul" style="margin-top: -10px; color: #1675a9; margin-top: -40px; margin-bottom: 40px;">Encuentra tu trabajo ideal</h5>
             <ul class="nav nav-tabs">
                 <li class="nav-item ">
                 <a class="nav-link link-tab-opcion-en-web active" data-toggle="tab" href="#home">Localización</a>
@@ -1176,11 +1180,15 @@
           <div class="container nosotros-container">
               <div class="row col-flex">
                     <div class="col-md-4 nosotros-container-row-col">
-                        <h6 class="nosotros-container-row-col_h6">Institucional</h6>
+                        <h6 class="nosotros-container-row-col_h6">Plataforma laboral</h6>
                         <ul>
                          
-                            {{--<li><a class="nosotros-container-row-col_a" href="">Contacto para personas</a> </li>--}}
-                            <li><a style="cursor: pointer" class="nosotros-container-row-col_a" data-toggle="modal" data-target="#termsModal">Aviso Legal y Privacidad</a> </li>
+                            <li>Información:</li>
+                            <li><a style="cursor: pointer" class="nosotros-container-row-col_a" data-toggle="modal" data-target="#termsModal"><strong>Términos Legales de Privacidad</strong></a> </li>
+                                
+                            <li style="margin-top: 15px;"><a class="nosotros-container-row-col_a">Contactos: </a> </li>
+                            <li style="font-size: 13px;"><strong>Usuarios y empresas:</strong> <a style="cursor: pointer" class="nosotros-container-row-col_a"> soporte@encontretrabajo.cl</a> </li>
+                            <li style="font-size: 13px;"><strong>Ventas de planes:</strong> <a style="cursor: pointer" class="nosotros-container-row-col_a">publicaciones@encontretrabajo.cl</a> </li>
                         </ul>
                     </div>
                     <div class="col-md-4 nosotros-container-row-col footer-social-nt">
