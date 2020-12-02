@@ -10,7 +10,9 @@
         </div>
         <div class="row" style="margin-top: 7rem;">
             <div class="col-md-5 ">
-                <img src="{{ $image }}" alt="" style="width: 100%">
+                <p class="text-center">
+                 <img src="{{ $image }}" alt="" style="width: 65%">
+                </p>
             </div>
             
             <div class="col-md-7">
