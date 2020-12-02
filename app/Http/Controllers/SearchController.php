@@ -24,7 +24,7 @@ class SearchController extends Controller
             $skip = ($request->page - 1) * $dataAmount;
 
             $search = "";
-            if($request->search == null && $request->region == null){
+            /*if($request->search == null){
                 $search = "1=1";
 
                 $offers = Offer::with("user", "region", "commune", "category")->has("category")->where("status", "abierto")
@@ -42,7 +42,7 @@ class SearchController extends Controller
 
                 return response()->json(["success" => true, "offers" => $offers, "offersCount" => $offersCount, "dataAmount" => $dataAmount]);
 
-            }
+            }*/
 
             $words = explode(' ',strtolower($request->search)); // coloco cada palabra en un espacio del array
             $wordsToDelete = array('de');
@@ -57,14 +57,6 @@ class SearchController extends Controller
                         $query->orWhere('title', "like", "%".$words[$i]."%");
                         $query->orWhere('job_position', "like", "%".$words[$i]."%");
                         $query->orWhere('description', "like", "%".$words[$i]."%");
-
-                        if(isset($request->region)){
-                            $query->orWhere("region_id", $request->region);
-                        }
-
-                        if(isset($request->business)){
-                            $query->orWhere("business_name", 'like', '%'.$request->business.'%');
-                        }
                         
                     }
                 }      
@@ -75,8 +67,18 @@ class SearchController extends Controller
             ->orderBy("is_highlighted", "desc")
             ->orderBy("id", "desc");
             
+            if(isset($request->business)){
+                $offers->whereHas("user", function($q) use($request){
+                    $q->where('business_name', "like", "%".$request->business."%");
+                });
+            }
+
             if(isset($request->category)){
                 $offers->where("category_id", $request->category);
+            }
+
+            if(isset($request->region)){
+                $offers->where("region_id", $request->region);
             }
         
             $offers = $offers->get();
@@ -90,13 +92,7 @@ class SearchController extends Controller
                         $query->orWhere('job_position', "like", "%".$words[$i]."%");
                         $query->orWhere('description', "like", "%".$words[$i]."%");
 
-                        if(isset($request->region)){
-                            $query->orWhere("region_id", $request->region);
-                        }
-
-                        if(isset($request->business)){
-                            $query->orWhere("business_name", 'like', '%'.$request->business.'%');
-                        }
+                    
                         
                     }
                 }      
@@ -106,6 +102,10 @@ class SearchController extends Controller
             
             if(isset($request->category)){
                 $offers->where("category_id", $request->category);
+            }
+
+            if(isset($request->region)){
+                $offers->where("region_id", $request->region);
             }
         
             $offersCount = $offersCount->count();
