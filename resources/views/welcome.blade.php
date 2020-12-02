@@ -282,7 +282,8 @@
             </div>
         </div>
         <section class="ofertas">
-            <h3  class=" text-center text-azul">Empresas que <strong><u>publican con nosotros</u></strong></h3>
+            <h3  class=" text-center text-azul"><u>Empresas</u></h3>
+            <h5  class=" text-center text-azul" style="margin-top: -10px; color: #1675a9; margin-top: -40px; margin-bottom: 40px;">Colaboradores que publican con nosotros</h5>
             <div class="container ofertas-opciones">
                 <div class="row ofertas-opciones-row">
                     
@@ -302,16 +303,17 @@
         </section> 
 
         <section class="ofertas">
-            <h3  class=" text-center text-azul">Hoy hay <strong><u>1500 empresas</u></strong> contratando</h3>
+            <h3  class=" text-center text-azul"><u>Ofertas de trabajo</u></h3>
+            <h5  class=" text-center text-azul" style="margin-top: -10px; color: #1675a9; margin-top: -40px; margin-bottom: 40px;">Reclutadores que te buscan a ti</h5>
             <div class="container ofertas-opciones">
                 <div class="row ofertas-opciones-row">
-                    @foreach(App\Offer::take(12)->with("user")->has("user")->where('status', 'abierto')->whereDate('expiration_date', '>', Carbon\Carbon::today()->toDateString())->get() as $offer)
+                    @foreach(App\Offer::take(12)->with("user")->has("user")->where('status', 'abierto')->whereDate('expiration_date', '>', Carbon\Carbon::today()->toDateString())->orderBy("id", "desc")->get() as $offer)
                         <div class="col-md-2 ofertas-opciones-item">
                             <a href="{{ env('PLATFORM_URL').'/offers/detail/'.$offer->slug }}"> 
                                 <p class="text-center">
                                     <img class="ofertas-opciones-item-img" src="{{ $offer->user->image }}">
                                 </p>
-                                <h3 class="text-center">{{ $offer->title }}</h3>
+                                <p class="text-center" style="text-transform: capitalize;">{{ strtolower($offer->title) }}</p>
                                 <h5 class="ofertas-opciones-item-h5">Ver oferta</h5>
                             </a>
                         </div>
