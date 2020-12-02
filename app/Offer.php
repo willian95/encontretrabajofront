@@ -17,4 +17,12 @@ class Offer extends Model
         return $this->belongsTo(JobCategory::class);
     }
 
+    public function commune(){
+        return $this->belongsTo(Commune::class);
+    }
+
+    public function region(){
+        return $this->belongsTo(Region::class);
+    }
+
 }

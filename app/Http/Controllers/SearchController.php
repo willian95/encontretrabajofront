@@ -27,14 +27,14 @@ class SearchController extends Controller
             if($request->search == null && $request->region == null){
                 $search = "1=1";
 
-                $offers = Offer::with("user", "user.region", "user.commune", "category")->has("user")->has("user.region")->has("user.commune")->has("category")->where("status", "abierto")
+                $offers = Offer::with("user", "region", "commune", "category")->has("category")->where("status", "abierto")
                 ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
                 ->take($dataAmount)
                 ->orderBy("is_highlighted", "desc")
                 ->orderBy("id", "desc")
                 ->get();
 
-                $offersCount = Offer::with("user", "user.region", "user.commune", "category")->has("user")->has("user.region")->has("user.commune")->has("category")
+                $offersCount = Offer::with("user", "region", "commune", "category")->has("category")
                 ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
                 ->orderBy("is_highlighted", "desc")
                 ->orderBy("id", "desc")
@@ -49,7 +49,7 @@ class SearchController extends Controller
 
             $words = array_values(array_diff($words,$wordsToDelete));
 
-            $offers = Offer::with("user")->with("user.region", "user.commune", "category")->has("user")
+            $offers = Offer::with("user")->with("region", "commune", "category")->has("user")
             ->where(function ($query) use($words, $request) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
@@ -81,7 +81,7 @@ class SearchController extends Controller
         
             $offers = $offers->get();
 
-            $offersCount = Offer::with("user")->with("user.region", "user.commune", "category")->has("user")
+            $offersCount = Offer::with("user")->with("region", "commune", "category")->has("user")
             ->where(function ($query) use($words, $request) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
@@ -127,19 +127,15 @@ class SearchController extends Controller
             $dataAmount = 18;
             $skip = ($request->page - 1) * $dataAmount;
 
-            $offers = Offer::with("user", "user.commune", "user.region", "category")->has("user")
-            ->whereHas("user", function($query) use($request){
-
-                $query->where("commune_id", $request->communeSearch);
-
-            })
+            $offers = Offer::with("user", "commune", "region", "category")->has("user")
+            ->where("commune_id", $request->communeSearch)
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
             ->take($dataAmount)
             ->orderBy("id", "desc")
             ->get();
 
-            $offersCount = Offer::with("user", "user.commune", "user.region", "category")->has("user")
+            $offersCount = Offer::with("user", "commune", "region", "category")->has("user")
             ->whereHas("user", function($query) use($request){
 
                 $query->where("commune_id", $request->communeSearch);
@@ -166,7 +162,7 @@ class SearchController extends Controller
             $dataAmount = 18;
             $skip = ($request->page - 1) * $dataAmount;
 
-            $offers = Offer::with("user", "user.commune", "user.region", "category")->has("user")
+            $offers = Offer::with("user", "commune", "region", "category")->has("user")
             ->where("status", "abierto")
             ->where("category_id", $request->categorySearch)
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
@@ -175,7 +171,7 @@ class SearchController extends Controller
             ->orderBy("id", "desc")
             ->get();
 
-            $offersCount = Offer::with("user", "user.commune", "user.region", "category")->has("user")
+            $offersCount = Offer::with("user", "commune", "region", "category")->has("user")
             ->where("category_id", $request->categorySearch)
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
