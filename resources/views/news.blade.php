@@ -15,6 +15,12 @@
             <div class="col-md-10 offset-md-1" style="margin-top: 1rem;">
                 {!! $text !!}
             </div>
+            
+            <div class="col-md-6 offset-md-3">
+                <video style="width: 100%;" controls>
+                    <source src="{{ $video }}" type="video/mp4">
+                </video>
+            </div>
         </div>
     </div>
 

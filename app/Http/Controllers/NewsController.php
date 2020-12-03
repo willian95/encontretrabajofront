@@ -11,7 +11,7 @@ class NewsController extends Controller
 
         $notice = Notice::where("slug", $slug)->first();
 
-        return view("news", ["image" => $notice->image, "text" => $notice->text, "title" => $notice->title]);
+        return view("news", ["image" => $notice->image, "text" => $notice->text, "title" => $notice->title, "video" => $notice->video]);
 
     }
 }
