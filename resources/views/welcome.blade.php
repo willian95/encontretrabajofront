@@ -1189,6 +1189,9 @@
                             <li style="margin-top: 15px;"><a class="nosotros-container-row-col_a">Contactos: </a> </li>
                             <li style="font-size: 13px;"><strong>Usuarios y empresas:</strong> <a style="cursor: pointer" class="nosotros-container-row-col_a"> soporte@encontretrabajo.cl</a> </li>
                             <li style="font-size: 13px;"><strong>Ventas de planes:</strong> <a style="cursor: pointer" class="nosotros-container-row-col_a">publicaciones@encontretrabajo.cl</a> </li>
+
+                            <li style="margin-top: 15px;"><a class="nosotros-container-row-col_a">Dirección: </a> </li>
+                            <li style="font-size: 13px;">San Miguel, Santiago de Chile. </li>
                         </ul>
                     </div>
                     <div class="col-md-4 nosotros-container-row-col footer-social-nt">
